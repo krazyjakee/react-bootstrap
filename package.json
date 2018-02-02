@@ -11,6 +11,7 @@
   "jsnext:main": "es/index.js",
   "module": "es/index.js",
   "scripts": {
+    "prepare": "npm run build",
     "bootstrap-docs": "npm run build lib && cd www && yarn install && cd ..",
     "build": "node tools/build.js",
     "build-docs": "npm run bootstrap-docs && npm -C www run build",
