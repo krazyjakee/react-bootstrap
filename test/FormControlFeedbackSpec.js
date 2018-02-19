@@ -9,7 +9,7 @@ describe('<FormControl.Feedback>', () => {
     mount(
       <FormGroup validationState="success">
         <FormControl.Feedback />
-      </FormGroup>
+      </FormGroup>,
     ).assertSingle('.form-control-feedback.glyphicon-ok');
   });
 
@@ -17,7 +17,7 @@ describe('<FormControl.Feedback>', () => {
     mount(
       <FormGroup validationState="warning">
         <FormControl.Feedback />
-      </FormGroup>
+      </FormGroup>,
     ).assertSingle('.form-control-feedback.glyphicon-warning-sign');
   });
 
@@ -25,7 +25,7 @@ describe('<FormControl.Feedback>', () => {
     mount(
       <FormGroup validationState="error">
         <FormControl.Feedback />
-      </FormGroup>
+      </FormGroup>,
     ).assertSingle('.form-control-feedback.glyphicon-remove');
   });
 
@@ -35,7 +35,7 @@ describe('<FormControl.Feedback>', () => {
         <div>
           <FormControl.Feedback />
         </div>
-      </FormGroup>
+      </FormGroup>,
     ).assertSingle('.form-control-feedback.glyphicon-ok');
   });
 
@@ -47,7 +47,7 @@ describe('<FormControl.Feedback>', () => {
     mount(
       <FormControl.Feedback>
         <MyComponent className="foo" />
-      </FormControl.Feedback>
+      </FormControl.Feedback>,
     ).assertSingle('MyComponent.foo.form-control-feedback');
   });
 });

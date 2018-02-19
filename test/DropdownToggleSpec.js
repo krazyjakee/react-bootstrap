@@ -12,7 +12,7 @@ describe('<DropdownToggle>', () => {
     const instance = ReactTestUtils.renderIntoDocument(simpleToggle);
     const buttonNode = ReactTestUtils.findRenderedDOMComponentWithTag(
       instance,
-      'BUTTON'
+      'BUTTON',
     );
 
     buttonNode.className.should.match(/\bbtn[ $]/);
@@ -25,7 +25,7 @@ describe('<DropdownToggle>', () => {
     const instance = ReactTestUtils.renderIntoDocument(simpleToggle);
     const buttonNode = ReactTestUtils.findRenderedDOMComponentWithTag(
       instance,
-      'BUTTON'
+      'BUTTON',
     );
 
     buttonNode.textContent.should.match(/herpa derpa/);
@@ -35,11 +35,11 @@ describe('<DropdownToggle>', () => {
     const instance = ReactTestUtils.renderIntoDocument(
       <DropdownToggle title="toggle" open={false}>
         <h3>herpa derpa</h3>
-      </DropdownToggle>
+      </DropdownToggle>,
     );
     const button = ReactTestUtils.findRenderedDOMComponentWithTag(
       instance,
-      'BUTTON'
+      'BUTTON',
     );
     const h3Node = getOne(button.getElementsByTagName('h3'));
 
@@ -50,7 +50,7 @@ describe('<DropdownToggle>', () => {
     const instance = ReactTestUtils.renderIntoDocument(simpleToggle);
     const caretNode = ReactTestUtils.findRenderedDOMComponentWithClass(
       instance,
-      'caret'
+      'caret',
     );
 
     caretNode.tagName.should.equal('SPAN');
@@ -58,18 +58,18 @@ describe('<DropdownToggle>', () => {
 
   it('does not render toggle button caret', () => {
     const instance = ReactTestUtils.renderIntoDocument(
-      <DropdownToggle open={false} title="no caret" noCaret />
+      <DropdownToggle open={false} title="no caret" noCaret />,
     );
     const caretNode = ReactTestUtils.scryRenderedDOMComponentsWithClass(
       instance,
-      'caret'
+      'caret',
     );
 
     caretNode.length.should.equal(0);
   });
 
-  it('forwards onClick handler', done => {
-    const handleClick = event => {
+  it('forwards onClick handler', (done) => {
+    const handleClick = (event) => {
       event.should.be.ok;
       done();
     };
@@ -78,11 +78,11 @@ describe('<DropdownToggle>', () => {
         open={false}
         title="click forwards"
         onClick={handleClick}
-      />
+      />,
     );
     const button = ReactTestUtils.findRenderedDOMComponentWithTag(
       instance,
-      'BUTTON'
+      'BUTTON',
     );
 
     ReactTestUtils.Simulate.click(button);
@@ -91,11 +91,11 @@ describe('<DropdownToggle>', () => {
   it('forwards id', () => {
     const id = 'testid';
     const instance = ReactTestUtils.renderIntoDocument(
-      <DropdownToggle id={id} open={false} title="id forwards" />
+      <DropdownToggle id={id} open={false} title="id forwards" />,
     );
     const button = ReactTestUtils.findRenderedDOMComponentWithTag(
       instance,
-      'BUTTON'
+      'BUTTON',
     );
 
     button.getAttribute('id').should.equal(id);
@@ -104,11 +104,11 @@ describe('<DropdownToggle>', () => {
   it('forwards bsStyle', () => {
     const style = 'success';
     const instance = ReactTestUtils.renderIntoDocument(
-      <DropdownToggle bsStyle={style} open={false} title="bsStyle forwards" />
+      <DropdownToggle bsStyle={style} open={false} title="bsStyle forwards" />,
     );
     const button = ReactTestUtils.findRenderedDOMComponentWithTag(
       instance,
-      'BUTTON'
+      'BUTTON',
     );
 
     button.className.should.match(/\bbtn-success\b/);
@@ -116,11 +116,11 @@ describe('<DropdownToggle>', () => {
 
   it('forwards bsSize', () => {
     const instance = ReactTestUtils.renderIntoDocument(
-      <DropdownToggle bsSize="small" open={false} title="bsSize forwards" />
+      <DropdownToggle bsSize="small" open={false} title="bsSize forwards" />,
     );
     const button = ReactTestUtils.findRenderedDOMComponentWithTag(
       instance,
-      'BUTTON'
+      'BUTTON',
     );
 
     button.className.should.match(/\bbtn-sm\b/);
@@ -132,11 +132,11 @@ describe('<DropdownToggle>', () => {
         bsClass="my-custom-bsClass"
         open={false}
         title="bsClass"
-      />
+      />,
     );
     const button = ReactTestUtils.findRenderedDOMComponentWithTag(
       instance,
-      'BUTTON'
+      'BUTTON',
     );
 
     button.className.should.match(/\bmy-custom-bsClass\b/);

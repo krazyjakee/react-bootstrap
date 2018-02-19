@@ -7,7 +7,7 @@ import {
   bsClass,
   bsSizes,
   getClassSet,
-  splitBsPropsAndOmit
+  splitBsPropsAndOmit,
 } from './utils/bootstrapUtils';
 import { Size } from './utils/StyleConfig';
 import ValidComponentChildren from './utils/ValidComponentChildren';
@@ -19,15 +19,15 @@ const propTypes = {
    * Sets `id` on `<FormControl>` and `htmlFor` on `<FormGroup.Label>`.
    */
   controlId: PropTypes.string,
-  validationState: PropTypes.oneOf(['success', 'warning', 'error', null])
+  validationState: PropTypes.oneOf(['success', 'warning', 'error', null]),
 };
 
 const defaultProps = {
-  componentClass: 'div'
+  componentClass: 'div',
 };
 
 const childContextTypes = {
-  $bs_formGroup: PropTypes.object.isRequired
+  $bs_formGroup: PropTypes.object.isRequired,
 };
 
 class FormGroup extends React.Component {
@@ -37,8 +37,8 @@ class FormGroup extends React.Component {
     return {
       $bs_formGroup: {
         controlId,
-        validationState
-      }
+        validationState,
+      },
     };
   }
 
@@ -47,7 +47,7 @@ class FormGroup extends React.Component {
       children,
       child =>
         child.props.bsRole === 'feedback' ||
-        (child.props.children && this.hasFeedback(child.props.children))
+        (child.props.children && this.hasFeedback(child.props.children)),
     );
   }
 
@@ -63,7 +63,7 @@ class FormGroup extends React.Component {
 
     const classes = {
       ...getClassSet(bsProps),
-      'has-feedback': this.hasFeedback(children)
+      'has-feedback': this.hasFeedback(children),
     };
     if (validationState) {
       classes[`has-${validationState}`] = true;
@@ -83,5 +83,5 @@ FormGroup.childContextTypes = childContextTypes;
 
 export default bsClass(
   'form-group',
-  bsSizes([Size.LARGE, Size.SMALL], FormGroup)
+  bsSizes([Size.LARGE, Size.SMALL], FormGroup),
 );

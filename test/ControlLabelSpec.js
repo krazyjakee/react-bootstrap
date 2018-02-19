@@ -12,16 +12,16 @@ describe('<FormLabel>', () => {
       shallow(
         <FormLabel htmlFor="foo" className="my-control-label">
           Label
-        </FormLabel>
+        </FormLabel>,
       )
         .assertSingle('label.control-label.my-control-label[htmlFor="foo"]')
-        .text()
+        .text(),
     ).to.equal('Label');
   });
 
   it('should respect srOnly', () => {
     shallow(<FormLabel srOnly>Label</FormLabel>).assertSingle(
-      'label.control-label.sr-only'
+      'label.control-label.sr-only',
     );
   });
 
@@ -29,7 +29,7 @@ describe('<FormLabel>', () => {
     mount(
       <FormGroup controlId="foo">
         <FormLabel>Label</FormLabel>
-      </FormGroup>
+      </FormGroup>,
     ).assertSingle('label.control-label[htmlFor="foo"]');
   });
 
@@ -39,7 +39,7 @@ describe('<FormLabel>', () => {
     mount(
       <FormGroup controlId="foo">
         <FormLabel htmlFor="bar">Label</FormLabel>
-      </FormGroup>
+      </FormGroup>,
     ).assertSingle('label.control-label[htmlFor="bar"]');
   });
 });

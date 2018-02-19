@@ -7,18 +7,18 @@ import {
   bsStyles,
   getClassSet,
   prefix,
-  splitBsProps
+  splitBsProps,
 } from './utils/bootstrapUtils';
 import { State } from './utils/StyleConfig';
 import CloseButton from './CloseButton';
 
 const propTypes = {
   onDismiss: PropTypes.func,
-  closeLabel: PropTypes.string
+  closeLabel: PropTypes.string,
 };
 
 const defaultProps = {
-  closeLabel: 'Close alert'
+  closeLabel: 'Close alert',
 };
 
 class Alert extends React.Component {
@@ -29,7 +29,7 @@ class Alert extends React.Component {
     const dismissable = !!onDismiss;
     const classes = {
       ...getClassSet(bsProps),
-      [prefix(bsProps, 'dismissable')]: dismissable
+      [prefix(bsProps, 'dismissable')]: dismissable,
     };
 
     return (
@@ -51,5 +51,5 @@ Alert.defaultProps = defaultProps;
 export default bsStyles(
   Object.values(State),
   State.INFO,
-  bsClass('alert', Alert)
+  bsClass('alert', Alert),
 );

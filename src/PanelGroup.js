@@ -6,7 +6,7 @@ import uncontrollable from 'uncontrollable';
 import {
   bsClass,
   getClassSet,
-  splitBsPropsAndOmit
+  splitBsPropsAndOmit,
 } from './utils/bootstrapUtils';
 import ValidComponentChildren from './utils/ValidComponentChildren';
 import { generatedId } from './utils/PropTypes';
@@ -49,11 +49,11 @@ const propTypes = {
    * HTML id attribute, required if no `generateChildId` prop
    * is specified.
    */
-  id: generatedId('PanelGroup')
+  id: generatedId('PanelGroup'),
 };
 
 const defaultProps = {
-  accordion: false
+  accordion: false,
 };
 
 const childContextTypes = {
@@ -62,8 +62,8 @@ const childContextTypes = {
     headerRole: PropTypes.string,
     panelRole: PropTypes.string,
     activeKey: PropTypes.any,
-    onToggle: PropTypes.func
-  })
+    onToggle: PropTypes.func,
+  }),
 };
 
 class PanelGroup extends React.Component {
@@ -90,9 +90,9 @@ class PanelGroup extends React.Component {
         panelRole: 'tabpanel',
         ...(accordion && {
           activeKey,
-          onToggle: this.handleSelect
-        })
-      }
+          onToggle: this.handleSelect,
+        }),
+      },
     };
   }
 
@@ -107,7 +107,7 @@ class PanelGroup extends React.Component {
 
     const [bsProps, elementProps] = splitBsPropsAndOmit(props, [
       'onSelect',
-      'activeKey'
+      'activeKey',
     ]);
 
     if (accordion) {
@@ -120,8 +120,8 @@ class PanelGroup extends React.Component {
       <div {...elementProps} className={classNames(className, classes)}>
         {ValidComponentChildren.map(children, child =>
           cloneElement(child, {
-            bsStyle: child.props.bsStyle || bsProps.bsStyle
-          })
+            bsStyle: child.props.bsStyle || bsProps.bsStyle,
+          }),
         )}
       </div>
     );
@@ -133,5 +133,5 @@ PanelGroup.defaultProps = defaultProps;
 PanelGroup.childContextTypes = childContextTypes;
 
 export default uncontrollable(bsClass('panel-group', PanelGroup), {
-  activeKey: 'onSelect'
+  activeKey: 'onSelect',
 });

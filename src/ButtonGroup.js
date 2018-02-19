@@ -8,7 +8,7 @@ import {
   bsClass,
   getClassSet,
   prefix,
-  splitBsProps
+  splitBsProps,
 } from './utils/bootstrapUtils';
 
 const propTypes = {
@@ -22,16 +22,16 @@ const propTypes = {
   block: all(
     PropTypes.bool,
     ({ block, vertical }) =>
-      block && !vertical
+      (block && !vertical
         ? new Error('`block` requires `vertical` to be set to have any effect')
-        : null
-  )
+        : null),
+  ),
 };
 
 const defaultProps = {
   block: false,
   justified: false,
-  vertical: false
+  vertical: false,
 };
 
 class ButtonGroup extends React.Component {
@@ -46,7 +46,7 @@ class ButtonGroup extends React.Component {
       [prefix(bsProps, 'justified')]: justified,
 
       // this is annoying, since the class is `btn-block` not `btn-group-block`
-      [prefix(Button.defaultProps, 'block')]: block
+      [prefix(Button.defaultProps, 'block')]: block,
     };
 
     return <div {...elementProps} className={classNames(className, classes)} />;

@@ -9,10 +9,10 @@ describe('<Badge>', () => {
     let instance = ReactTestUtils.renderIntoDocument(
       <Badge>
         <strong>Content</strong>
-      </Badge>
+      </Badge>,
     );
     assert.ok(
-      ReactTestUtils.findRenderedDOMComponentWithTag(instance, 'strong')
+      ReactTestUtils.findRenderedDOMComponentWithTag(instance, 'strong'),
     );
   });
 
@@ -35,7 +35,7 @@ describe('<Badge>', () => {
 
   it('Should have a badge class pulled right', () => {
     let instance = ReactTestUtils.renderIntoDocument(
-      <Badge pullRight>Content</Badge>
+      <Badge pullRight>Content</Badge>,
     );
     assert.ok(ReactDOM.findDOMNode(instance).className.match(/\bpull-right\b/));
   });
@@ -54,7 +54,7 @@ describe('<Badge>', () => {
     it('should not hide 0', () => {
       let instance = ReactTestUtils.renderIntoDocument(<Badge>{0}</Badge>);
       assert.notOk(
-        ReactDOM.findDOMNode(instance).className.match(/\bhidden\b/)
+        ReactDOM.findDOMNode(instance).className.match(/\bhidden\b/),
       );
     });
   });

@@ -8,24 +8,24 @@ describe('<Tab>', () => {
   it('Should have class', () => {
     let instance = ReactTestUtils.renderIntoDocument(<Tab>Item content</Tab>);
     assert.ok(
-      ReactTestUtils.findRenderedDOMComponentWithClass(instance, 'tab-pane')
+      ReactTestUtils.findRenderedDOMComponentWithClass(instance, 'tab-pane'),
     );
   });
 
   it('Should add active class', () => {
     let instance = ReactTestUtils.renderIntoDocument(<Tab>Item content</Tab>);
     assert.ok(
-      ReactTestUtils.findRenderedDOMComponentWithClass(instance, 'active')
+      ReactTestUtils.findRenderedDOMComponentWithClass(instance, 'active'),
     );
   });
 
   it('Should not add active class when not visible', () => {
     let instance = ReactTestUtils.renderIntoDocument(
-      <Tab eventKey={{}}>Item content</Tab>
+      <Tab eventKey={{}}>Item content</Tab>,
     );
     assert.lengthOf(
       ReactTestUtils.scryRenderedDOMComponentsWithClass(instance, 'active'),
-      0
+      0,
     );
   });
 
@@ -35,18 +35,18 @@ describe('<Tab>', () => {
 
       assert.equal(
         ReactDOM.findDOMNode(instance).getAttribute('aria-hidden'),
-        'false'
+        'false',
       );
     });
 
     it('Should have aria-hidden true when hidden', () => {
       let instance = ReactTestUtils.renderIntoDocument(
-        <Tab eventKey={{}}>Item content</Tab>
+        <Tab eventKey={{}}>Item content</Tab>,
       );
 
       assert.equal(
         ReactDOM.findDOMNode(instance).getAttribute('aria-hidden'),
-        'true'
+        'true',
       );
     });
 
@@ -55,7 +55,7 @@ describe('<Tab>', () => {
 
       assert.equal(
         ReactDOM.findDOMNode(instance).getAttribute('role'),
-        'tabpanel'
+        'tabpanel',
       );
     });
   });

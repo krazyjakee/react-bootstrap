@@ -20,7 +20,7 @@ const propTypes = {
   /**
    * @private
    */
-  children: PropTypes.node
+  children: PropTypes.node,
 };
 
 class NavDropdown extends React.Component {
@@ -35,7 +35,7 @@ class NavDropdown extends React.Component {
 
     if (
       ValidComponentChildren.some(props.children, child =>
-        this.isActive(child, activeKey, activeHref)
+        this.isActive(child, activeKey, activeHref),
       )
     ) {
       return true;
@@ -61,7 +61,7 @@ class NavDropdown extends React.Component {
 
     const [dropdownProps, toggleProps] = splitComponentProps(
       props,
-      Dropdown.ControlledComponent
+      Dropdown.ControlledComponent,
     );
 
     // Unlike for the other dropdowns, styling needs to go to the `<Dropdown>`
@@ -81,8 +81,8 @@ class NavDropdown extends React.Component {
         <Dropdown.Menu>
           {ValidComponentChildren.map(children, child =>
             React.cloneElement(child, {
-              active: this.isActive(child, activeKey, activeHref)
-            })
+              active: this.isActive(child, activeKey, activeHref),
+            }),
           )}
         </Dropdown.Menu>
       </Dropdown>

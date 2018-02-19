@@ -10,7 +10,7 @@ describe('<Radio>', () => {
     const wrapper = shallow(
       <Radio name="foo" checked className="my-radio">
         My label
-      </Radio>
+      </Radio>,
     );
 
     wrapper
@@ -27,7 +27,7 @@ describe('<Radio>', () => {
     const wrapper = shallow(
       <Radio inline name="foo" className="my-radio">
         My label
-      </Radio>
+      </Radio>,
     );
 
     wrapper
@@ -57,7 +57,7 @@ describe('<Radio>', () => {
       render() {
         return (
           <Radio
-            inputRef={ref => {
+            inputRef={(ref) => {
               this.input = ref;
             }}
           />

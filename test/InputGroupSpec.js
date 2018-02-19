@@ -16,7 +16,7 @@ describe('<InputGroup>', () => {
         <InputGroup.Button className="my-button">
           <Button>Bar</Button>
         </InputGroup.Button>
-      </InputGroup>
+      </InputGroup>,
     ).assertSingle('.input-group.my-input-group');
 
     wrapper
@@ -31,7 +31,7 @@ describe('<InputGroup>', () => {
 
   it('should support bsSize', () => {
     shallow(<InputGroup bsSize="small" />).assertSingle(
-      '.input-group.input-group-sm'
+      '.input-group.input-group-sm',
     );
   });
 });

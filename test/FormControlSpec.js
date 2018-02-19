@@ -9,19 +9,19 @@ import { shouldWarn } from './helpers';
 describe('<FormControl>', () => {
   it('should render correctly', () => {
     shallow(
-      <FormControl type="text" id="foo" name="bar" className="my-control" />
+      <FormControl type="text" id="foo" name="bar" className="my-control" />,
     ).assertSingle('input#foo.form-control.my-control[name="bar"]');
   });
 
   it('should support textarea', () => {
     shallow(<FormControl componentClass="textarea" />).assertSingle(
-      'textarea.form-control'
+      'textarea.form-control',
     );
   });
 
   it('should support select', () => {
     shallow(<FormControl componentClass="select" />).assertSingle(
-      'select.form-control'
+      'select.form-control',
     );
   });
 
@@ -36,7 +36,7 @@ describe('<FormControl>', () => {
     mount(
       <FormGroup controlId="foo">
         <FormControl type="text" />
-      </FormGroup>
+      </FormGroup>,
     ).assertSingle('input#foo.form-control');
   });
 
@@ -46,7 +46,7 @@ describe('<FormControl>', () => {
     mount(
       <FormGroup controlId="foo">
         <FormControl type="text" id="bar" />
-      </FormGroup>
+      </FormGroup>,
     ).assertSingle('input#bar.form-control');
   });
 
@@ -57,7 +57,7 @@ describe('<FormControl>', () => {
           <FormGroup controlId="foo">
             <FormControl
               type="text"
-              inputRef={ref => {
+              inputRef={(ref) => {
                 this.input = ref;
               }}
             />
@@ -72,7 +72,7 @@ describe('<FormControl>', () => {
 
   it('should properly display size of FormControl', () => {
     mount(<FormControl type="text" bsSize="lg" />).assertSingle(
-      'input.form-control.input-lg'
+      'input.form-control.input-lg',
     );
   });
 });

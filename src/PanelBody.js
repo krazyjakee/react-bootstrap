@@ -16,17 +16,17 @@ const propTypes = {
    * </Panel.Collapse>
    * ```
    */
-  collapsible: PropTypes.bool.isRequired
+  collapsible: PropTypes.bool.isRequired,
 };
 
 const defaultProps = {
-  collapsible: false
+  collapsible: false,
 };
 
 const contextTypes = {
   $bs_panel: PropTypes.shape({
-    bsClass: PropTypes.string
-  })
+    bsClass: PropTypes.string,
+  }),
 };
 
 class PanelBody extends React.Component {
@@ -35,7 +35,7 @@ class PanelBody extends React.Component {
     const { bsClass: _bsClass } = this.context.$bs_panel || {};
 
     const [bsProps, elementProps] = splitBsPropsAndOmit(this.props, [
-      'collapsible'
+      'collapsible',
     ]);
     bsProps.bsClass = _bsClass || bsProps.bsClass;
 

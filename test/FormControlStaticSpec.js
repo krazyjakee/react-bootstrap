@@ -9,10 +9,10 @@ describe('<FormControl.Static>', () => {
       shallow(
         <FormControl.Static name="foo" className="my-form-control-static">
           Static text
-        </FormControl.Static>
+        </FormControl.Static>,
       )
         .assertSingle('.form-control-static.my-form-control-static')
-        .text()
+        .text(),
     ).to.equal('Static text');
   });
 
@@ -25,10 +25,10 @@ describe('<FormControl.Static>', () => {
       shallow(
         <FormControl.Static componentClass={MyComponent}>
           Static text
-        </FormControl.Static>
+        </FormControl.Static>,
       )
         .assertSingle('MyComponent.form-control-static')
-        .contains('Static text')
+        .contains('Static text'),
     ).to.equal(true);
   });
 });

@@ -62,7 +62,7 @@ export default function ModalSection({ data }) {
             '}\n' +
             '.modal-container .modal, .modal-container .modal-backdrop {\n' +
             '  position: absolute;\n' +
-            '}\n'
+            '}\n',
         )}
       </pre>
       <ReactPlayground codeText={ModalContained} />

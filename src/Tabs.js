@@ -28,7 +28,7 @@ const propTypes = {
   animation: PropTypes.bool,
 
   id: requiredForA11y(
-    PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+    PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   ),
 
   /**
@@ -53,19 +53,19 @@ const propTypes = {
   /**
    * Unmount tabs (remove it from the DOM) when it is no longer visible
    */
-  unmountOnExit: PropTypes.bool
+  unmountOnExit: PropTypes.bool,
 };
 
 const defaultProps = {
   bsStyle: 'tabs',
   animation: true,
   mountOnEnter: false,
-  unmountOnExit: false
+  unmountOnExit: false,
 };
 
 function getDefaultActiveKey(children) {
   let defaultActiveKey;
-  ValidComponentChildren.forEach(children, child => {
+  ValidComponentChildren.forEach(children, (child) => {
     if (defaultActiveKey == null) {
       defaultActiveKey = child.props.eventKey;
     }

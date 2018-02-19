@@ -6,11 +6,11 @@ import Glyphicon from './Glyphicon';
 import { bsClass, getClassSet, splitBsProps } from './utils/bootstrapUtils';
 
 const defaultProps = {
-  bsRole: 'feedback'
+  bsRole: 'feedback',
 };
 
 const contextTypes = {
-  $bs_formGroup: PropTypes.object
+  $bs_formGroup: PropTypes.object,
 };
 
 class FormControlFeedback extends React.Component {
@@ -53,14 +53,14 @@ class FormControlFeedback extends React.Component {
         this.context.$bs_formGroup,
         className,
         classes,
-        elementProps
+        elementProps,
       );
     }
 
     const child = React.Children.only(children);
     return React.cloneElement(child, {
       ...elementProps,
-      className: classNames(child.props.className, className, classes)
+      className: classNames(child.props.className, className, classes),
     });
   }
 }

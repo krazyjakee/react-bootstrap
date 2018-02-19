@@ -10,7 +10,7 @@ describe('<Checkbox>', () => {
     const wrapper = shallow(
       <Checkbox name="foo" checked className="my-checkbox">
         My label
-      </Checkbox>
+      </Checkbox>,
     );
 
     wrapper
@@ -27,7 +27,7 @@ describe('<Checkbox>', () => {
     const wrapper = shallow(
       <Checkbox inline name="foo" className="my-checkbox">
         My label
-      </Checkbox>
+      </Checkbox>,
     );
 
     wrapper
@@ -42,7 +42,7 @@ describe('<Checkbox>', () => {
 
   it('should support validation state', () => {
     shallow(<Checkbox validationState="success" />).assertSingle(
-      '.has-success'
+      '.has-success',
     );
   });
 
@@ -59,7 +59,7 @@ describe('<Checkbox>', () => {
       render() {
         return (
           <Checkbox
-            inputRef={ref => {
+            inputRef={(ref) => {
               this.input = ref;
             }}
           />

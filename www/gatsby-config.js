@@ -5,15 +5,15 @@ const { addBootstrapPropTypes } = require('./bsPropUtils');
 module.exports = {
   siteMetadata: {
     title: 'React-Bootstrap Documentation',
-    author: 'Jason Quense'
+    author: 'Jason Quense',
   },
   plugins: [
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: path.resolve(__dirname, '../src'),
-        name: 'source'
-      }
+        name: 'source',
+      },
     },
     {
       resolve: 'gatsby-transformer-react-docgen',
@@ -37,18 +37,18 @@ module.exports = {
                   desc.description || defaultDescriptions[name];
               }
             });
-          }
-        ]
-      }
+          },
+        ],
+      },
     },
     {
       resolve: 'gatsby-transformer-remark',
       options: {
-        plugins: ['gatsby-remark-prismjs']
-      }
+        plugins: ['gatsby-remark-prismjs'],
+      },
     },
     'gatsby-plugin-catch-links',
     'gatsby-plugin-sass',
-    'gatsby-plugin-less'
-  ]
+    'gatsby-plugin-less',
+  ],
 };

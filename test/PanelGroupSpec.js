@@ -13,7 +13,7 @@ describe('<PanelGroup>', () => {
         <Panel>
           <Panel.Body>Panel 1</Panel.Body>
         </Panel>
-      </PanelGroup>
+      </PanelGroup>,
     );
 
     let panel = ReactTestUtils.findRenderedComponentWithType(instance, Panel);
@@ -27,7 +27,7 @@ describe('<PanelGroup>', () => {
         <Panel bsStyle="primary">
           <Panel.Body>Panel 1</Panel.Body>
         </Panel>
-      </PanelGroup>
+      </PanelGroup>,
     );
 
     let panel = ReactTestUtils.findRenderedComponentWithType(instance, Panel);
@@ -47,13 +47,13 @@ describe('<PanelGroup>', () => {
         <Panel>
           <input type="text" className="changeme" />
         </Panel>
-      </PanelGroup>
+      </PanelGroup>,
     )
       .assertSingle('input.changeme')
       .simulate('select');
   });
 
-  it('Should call onSelect handler with eventKey', done => {
+  it('Should call onSelect handler with eventKey', (done) => {
     function handleSelect(eventKey, e) {
       e.should.exist;
       eventKey.should.equal('1');
@@ -69,7 +69,7 @@ describe('<PanelGroup>', () => {
 
           <Panel.Body collapsible>Panel 1</Panel.Body>
         </Panel>
-      </PanelGroup>
+      </PanelGroup>,
     )
       .find('a')
       .simulate('click');
@@ -95,7 +95,7 @@ describe('<PanelGroup>', () => {
 
             <Panel.Body collapsible>Panel 2</Panel.Body>
           </Panel>
-        </PanelGroup>
+        </PanelGroup>,
       );
 
       panelGroup = inst.getDOMNode();

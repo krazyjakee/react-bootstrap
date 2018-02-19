@@ -27,13 +27,13 @@ describe('<Modal>', () => {
       <Modal show onHide={noOp} animation={false}>
         <strong>Message</strong>
       </Modal>,
-      mountPoint
+      mountPoint,
     );
 
     assert.ok(instance._modal.getDialogElement().querySelector('strong'));
   });
 
-  it('Should close the modal when the modal dialog is clicked', done => {
+  it('Should close the modal when the modal dialog is clicked', (done) => {
     const doneOp = () => {
       done();
     };
@@ -42,7 +42,7 @@ describe('<Modal>', () => {
       <Modal show onHide={doneOp}>
         <strong>Message</strong>
       </Modal>,
-      mountPoint
+      mountPoint,
     );
 
     const dialog = instance._modal.getDialogElement();
@@ -56,7 +56,7 @@ describe('<Modal>', () => {
       <Modal show onHide={onHideSpy} backdrop="static">
         <strong>Message</strong>
       </Modal>,
-      mountPoint
+      mountPoint,
     );
 
     const dialog = instance._modal.getDialogElement();
@@ -66,7 +66,7 @@ describe('<Modal>', () => {
     expect(onHideSpy).to.not.have.been.called;
   });
 
-  it('Should close the modal when the modal close button is clicked', done => {
+  it('Should close the modal when the modal close button is clicked', (done) => {
     const doneOp = () => {
       done();
     };
@@ -76,7 +76,7 @@ describe('<Modal>', () => {
         <Modal.Header closeButton />
         <strong>Message</strong>
       </Modal>,
-      mountPoint
+      mountPoint,
     );
 
     const button = instance._modal
@@ -92,7 +92,7 @@ describe('<Modal>', () => {
       <Modal show className="mymodal" onHide={noOp}>
         <strong>Message</strong>
       </Modal>,
-      mountPoint
+      mountPoint,
     );
 
     const dialog = instance._modal.getDialogElement();
@@ -106,7 +106,7 @@ describe('<Modal>', () => {
       <Modal show bsClass="mymodal" onHide={noOp}>
         <strong>Message</strong>
       </Modal>,
-      mountPoint
+      mountPoint,
     );
 
     const modal = instance._modal.getDialogElement();
@@ -114,12 +114,12 @@ describe('<Modal>', () => {
     assert.ok(modal.className.match(/\bmymodal\b/));
     assert.ok(modal.children[0].className.match(/\bmymodal-dialog\b/));
     assert.ok(
-      modal.children[0].children[0].className.match(/\bmymodal-content\b/)
+      modal.children[0].children[0].className.match(/\bmymodal-content\b/),
     );
 
     const baseModal = ReactTestUtils.findRenderedComponentWithType(
       instance,
-      BaseModal
+      BaseModal,
     );
     assert.ok(baseModal.backdrop.className.match(/\bmymodal-backdrop\b/));
   });
@@ -130,15 +130,15 @@ describe('<Modal>', () => {
       <Modal show backdropClassName="my-modal-backdrop" onHide={noOp}>
         <strong>Message</strong>
       </Modal>,
-      mountPoint
+      mountPoint,
     );
 
     const baseModal = ReactTestUtils.findRenderedComponentWithType(
       instance,
-      BaseModal
+      BaseModal,
     );
     assert.ok(
-      baseModal.backdrop.className.match(/\bmodal-backdrop my-modal-backdrop\b/)
+      baseModal.backdrop.className.match(/\bmodal-backdrop my-modal-backdrop\b/),
     );
   });
 
@@ -148,7 +148,7 @@ describe('<Modal>', () => {
       <Modal show bsSize="small" onHide={noOp}>
         <strong>Message</strong>
       </Modal>,
-      mountPoint
+      mountPoint,
     );
 
     const dialog = instance._modal
@@ -164,7 +164,7 @@ describe('<Modal>', () => {
       <Modal show style={{ top: 1000 }} onHide={noOp}>
         <strong>Message</strong>
       </Modal>,
-      mountPoint
+      mountPoint,
     );
 
     const dialog = instance._modal.getDialogElement();
@@ -178,7 +178,7 @@ describe('<Modal>', () => {
       <Modal show dialogClassName="testCss" onHide={noOp}>
         <strong>Message</strong>
       </Modal>,
-      mountPoint
+      mountPoint,
     );
 
     const dialog = instance._modal
@@ -199,13 +199,13 @@ describe('<Modal>', () => {
       <Modal show dialogComponentClass={CustomDialog} onHide={noOp}>
         <strong>Message</strong>
       </Modal>,
-      mountPoint
+      mountPoint,
     );
 
     assert.equal(instance._modal.getDialogElement().className, 'custom-dialog');
   });
 
-  it('Should pass transition callbacks to Transition', done => {
+  it('Should pass transition callbacks to Transition', (done) => {
     let count = 0;
     const increment = () => {
       ++count;
@@ -231,7 +231,7 @@ describe('<Modal>', () => {
       >
         <strong>Message</strong>
       </Modal>,
-      mountPoint
+      mountPoint,
     );
   });
 
@@ -252,7 +252,7 @@ describe('<Modal>', () => {
           super(props, context);
 
           this.state = {
-            show: true
+            show: true,
           };
         }
 

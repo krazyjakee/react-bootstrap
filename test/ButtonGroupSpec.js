@@ -12,7 +12,7 @@ describe('ButtonGroup', () => {
     let instance = ReactTestUtils.renderIntoDocument(
       <ButtonGroup>
         <Button>Title</Button>
-      </ButtonGroup>
+      </ButtonGroup>,
     );
     assert.equal(ReactDOM.findDOMNode(instance).nodeName, 'DIV');
     assert.ok(ReactDOM.findDOMNode(instance).className.match(/\bbtn-group\b/));
@@ -22,10 +22,10 @@ describe('ButtonGroup', () => {
     let instance = ReactTestUtils.renderIntoDocument(
       <ButtonGroup bsSize="large">
         <Button>Title</Button>
-      </ButtonGroup>
+      </ButtonGroup>,
     );
     assert.ok(
-      ReactDOM.findDOMNode(instance).className.match(/\bbtn-group-lg\b/)
+      ReactDOM.findDOMNode(instance).className.match(/\bbtn-group-lg\b/),
     );
   });
 
@@ -33,11 +33,11 @@ describe('ButtonGroup', () => {
     let instance = ReactTestUtils.renderIntoDocument(
       <ButtonGroup vertical>
         <Button>Title</Button>
-      </ButtonGroup>
+      </ButtonGroup>,
     );
     assert.equal(
       ReactDOM.findDOMNode(instance).className.trim(),
-      'btn-group-vertical'
+      'btn-group-vertical',
     );
   });
 
@@ -45,7 +45,7 @@ describe('ButtonGroup', () => {
     let instance = ReactTestUtils.renderIntoDocument(
       <ButtonGroup vertical block>
         <Button>Title</Button>
-      </ButtonGroup>
+      </ButtonGroup>,
     );
     assert.ok(ReactDOM.findDOMNode(instance).className.match(/\bbtn-block\b/));
   });
@@ -56,7 +56,7 @@ describe('ButtonGroup', () => {
     ReactTestUtils.renderIntoDocument(
       <ButtonGroup block>
         <Button>Title</Button>
-      </ButtonGroup>
+      </ButtonGroup>,
     );
   });
 
@@ -64,10 +64,10 @@ describe('ButtonGroup', () => {
     let instance = ReactTestUtils.renderIntoDocument(
       <ButtonGroup justified>
         <Button>Title</Button>
-      </ButtonGroup>
+      </ButtonGroup>,
     );
     assert.ok(
-      ReactDOM.findDOMNode(instance).className.match(/\bbtn-group-justified\b/)
+      ReactDOM.findDOMNode(instance).className.match(/\bbtn-group-justified\b/),
     );
   });
 });

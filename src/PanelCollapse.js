@@ -28,7 +28,7 @@ const propTypes = {
   /**
    * Callback fired after the component has collapsed
    */
-  onExited: PropTypes.func
+  onExited: PropTypes.func,
 };
 
 const contextTypes = {
@@ -36,8 +36,8 @@ const contextTypes = {
     headingId: PropTypes.string,
     bodyId: PropTypes.string,
     bsClass: PropTypes.string,
-    expanded: PropTypes.bool
-  })
+    expanded: PropTypes.bool,
+  }),
 };
 
 class PanelCollapse extends React.Component {

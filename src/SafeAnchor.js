@@ -14,11 +14,11 @@ const propTypes = {
   /**
    * this is sort of silly but needed for Button
    */
-  componentClass: elementType
+  componentClass: elementType,
 };
 
 const defaultProps = {
-  componentClass: 'a'
+  componentClass: 'a',
 };
 
 function isTrivialHref(href) {

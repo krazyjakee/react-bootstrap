@@ -23,17 +23,17 @@ describe('<Grid>', () => {
 
   it('should merge additional classes passed in', () => {
     let instance = ReactTestUtils.renderIntoDocument(
-      <Grid className="whatever" fluid />
+      <Grid className="whatever" fluid />,
     );
     assert.ok(ReactDOM.findDOMNode(instance).className.match(/\bwhatever\b/));
     assert.ok(
-      ReactDOM.findDOMNode(instance).className.match(/\bcontainer-fluid\b/)
+      ReactDOM.findDOMNode(instance).className.match(/\bcontainer-fluid\b/),
     );
   });
 
   it('allows custom elements instead of "div"', () => {
     let instance = ReactTestUtils.renderIntoDocument(
-      <Grid componentClass="section" />
+      <Grid componentClass="section" />,
     );
 
     assert.equal(ReactDOM.findDOMNode(instance).nodeName, 'SECTION');

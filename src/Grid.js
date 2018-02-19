@@ -15,12 +15,12 @@ const propTypes = {
   /**
    * You can use a custom element for this component
    */
-  componentClass: elementType
+  componentClass: elementType,
 };
 
 const defaultProps = {
   componentClass: 'div',
-  fluid: false
+  fluid: false,
 };
 
 class Grid extends React.Component {

@@ -13,7 +13,7 @@ describe('ButtonToolbar', () => {
         <ButtonGroup>
           <Button>Title</Button>
         </ButtonGroup>
-      </ButtonToolbar>
+      </ButtonToolbar>,
     );
     let node = ReactDOM.findDOMNode(instance);
     assert.equal(node.nodeName, 'DIV');

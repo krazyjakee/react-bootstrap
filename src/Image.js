@@ -23,14 +23,14 @@ const propTypes = {
   /**
    * Sets image shape as thumbnail
    */
-  thumbnail: PropTypes.bool
+  thumbnail: PropTypes.bool,
 };
 
 const defaultProps = {
   responsive: false,
   rounded: false,
   circle: false,
-  thumbnail: false
+  thumbnail: false,
 };
 
 class Image extends React.Component {
@@ -49,7 +49,7 @@ class Image extends React.Component {
       [prefix(bsProps, 'responsive')]: responsive,
       [prefix(bsProps, 'rounded')]: rounded,
       [prefix(bsProps, 'circle')]: circle,
-      [prefix(bsProps, 'thumbnail')]: thumbnail
+      [prefix(bsProps, 'thumbnail')]: thumbnail,
     };
 
     return (

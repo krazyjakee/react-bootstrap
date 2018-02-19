@@ -20,11 +20,11 @@ const propTypes = {
   /**
    * `target` attribute for the inner `a` element
    */
-  target: PropTypes.string
+  target: PropTypes.string,
 };
 
 const defaultProps = {
-  active: false
+  active: false,
 };
 
 class BreadcrumbItem extends React.Component {

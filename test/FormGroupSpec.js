@@ -11,14 +11,14 @@ describe('<FormGroup>', () => {
       <FormGroup>
         <span className="child1" />
         <span className="child2" />
-      </FormGroup>
+      </FormGroup>,
     );
 
     assert.ok(
-      ReactTestUtils.findRenderedDOMComponentWithClass(instance, 'child1')
+      ReactTestUtils.findRenderedDOMComponentWithClass(instance, 'child1'),
     );
     assert.ok(
-      ReactTestUtils.findRenderedDOMComponentWithClass(instance, 'child2')
+      ReactTestUtils.findRenderedDOMComponentWithClass(instance, 'child2'),
     );
   });
 
@@ -26,11 +26,11 @@ describe('<FormGroup>', () => {
     let instance = ReactTestUtils.renderIntoDocument(
       <FormGroup>
         <span />
-      </FormGroup>
+      </FormGroup>,
     );
 
     assert.ok(
-      ReactTestUtils.findRenderedDOMComponentWithClass(instance, 'form-group')
+      ReactTestUtils.findRenderedDOMComponentWithClass(instance, 'form-group'),
     );
   });
 
@@ -38,59 +38,59 @@ describe('<FormGroup>', () => {
     let instance = ReactTestUtils.renderIntoDocument(
       <FormGroup bsSize="small">
         <span />
-      </FormGroup>
+      </FormGroup>,
     );
 
     assert.ok(
-      ReactTestUtils.findRenderedDOMComponentWithClass(instance, 'form-group')
+      ReactTestUtils.findRenderedDOMComponentWithClass(instance, 'form-group'),
     );
     assert.ok(
       ReactTestUtils.findRenderedDOMComponentWithClass(
         instance,
-        'form-group-sm'
-      )
+        'form-group-sm',
+      ),
     );
 
     instance = ReactTestUtils.renderIntoDocument(
       <FormGroup bsSize="large">
         <span />
-      </FormGroup>
+      </FormGroup>,
     );
 
     assert.ok(
-      ReactTestUtils.findRenderedDOMComponentWithClass(instance, 'form-group')
+      ReactTestUtils.findRenderedDOMComponentWithClass(instance, 'form-group'),
     );
     assert.ok(
       ReactTestUtils.findRenderedDOMComponentWithClass(
         instance,
-        'form-group-lg'
-      )
+        'form-group-lg',
+      ),
     );
   });
 
   [
     {
       props: { validationState: 'success' },
-      className: 'has-success'
+      className: 'has-success',
     },
     {
       props: { validationState: 'warning' },
-      className: 'has-warning'
+      className: 'has-warning',
     },
     {
       props: { validationState: 'error' },
-      className: 'has-error'
+      className: 'has-error',
     },
     {
       props: { className: 'custom-group' },
-      className: 'custom-group'
-    }
+      className: 'custom-group',
+    },
   ].forEach(({ props, className }) => {
     it(`does not render ${className} class`, () => {
       shallow(
         <FormGroup>
           <span />
-        </FormGroup>
+        </FormGroup>,
       ).assertNone(`.${className}`);
     });
 
@@ -98,7 +98,7 @@ describe('<FormGroup>', () => {
       shallow(
         <FormGroup {...props}>
           <span />
-        </FormGroup>
+        </FormGroup>,
       ).assertSingle(`.${className}`);
     });
   });
@@ -106,7 +106,7 @@ describe('<FormGroup>', () => {
   describe('feedback', () => {
     it('should not have feedback without feedback component', () => {
       shallow(<FormGroup validationState="success" />).assertNone(
-        '.has-feedback'
+        '.has-feedback',
       );
     });
 
@@ -114,7 +114,7 @@ describe('<FormGroup>', () => {
       shallow(
         <FormGroup validationState="success">
           <FormControl.Feedback />
-        </FormGroup>
+        </FormGroup>,
       ).assertSingle('.has-feedback');
     });
 
@@ -124,7 +124,7 @@ describe('<FormGroup>', () => {
           <div>
             <FormControl.Feedback />
           </div>
-        </FormGroup>
+        </FormGroup>,
       ).assertSingle('.has-feedback');
     });
 
@@ -132,7 +132,7 @@ describe('<FormGroup>', () => {
       shallow(
         <FormGroup validationState="success">
           <div bsRole="feedback" />
-        </FormGroup>
+        </FormGroup>,
       ).assertSingle('.has-feedback');
     });
   });

@@ -33,7 +33,7 @@ const propTypes = {
   /**
    * The value of the input, and unique identifier in the ToggleButtonGroup
    */
-  value: PropTypes.any.isRequired
+  value: PropTypes.any.isRequired,
 };
 
 class ToggleButton extends React.Component {

@@ -7,8 +7,8 @@ import { prefix } from './utils/bootstrapUtils';
 const contextTypes = {
   $bs_navbar: PropTypes.shape({
     bsClass: PropTypes.string,
-    expanded: PropTypes.bool
-  })
+    expanded: PropTypes.bool,
+  }),
 };
 
 class NavbarCollapse extends React.Component {

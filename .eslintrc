@@ -1,15 +1,13 @@
 {
-  "extends": ["eslint-config-airbnb", "prettier"],
+  "extends": ["eslint-config-airbnb"],
   "env": {
     "browser": true
   },
   "globals": {
     "__DEV__": false
   },
-  "parser": "babel-eslint",
   "plugins": [
-    "react",
-    "prettier"
+    "react"
   ],
   "rules": {
     "max-len": "off",
@@ -29,6 +27,7 @@
     "class-methods-use-this": "off",
     "no-underscore-dangle": "off",
     "jsx-a11y/no-noninteractive-element-interactions": "off",
+    "jsx-a11y/label-has-for": "off",
     "react/forbid-prop-types": "off",
     "react/jsx-boolean-value": 2,
     "react/jsx-no-duplicate-props": 2,

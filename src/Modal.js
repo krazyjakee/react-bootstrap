@@ -119,19 +119,19 @@ const propTypes = {
   /**
    * @private
    */
-  container: BaseModal.propTypes.container
+  container: BaseModal.propTypes.container,
 };
 
 const defaultProps = {
   ...BaseModal.defaultProps,
   animation: true,
-  dialogComponentClass: ModalDialog
+  dialogComponentClass: ModalDialog,
 };
 
 const childContextTypes = {
   $bs_modal: PropTypes.shape({
-    onHide: PropTypes.func
-  })
+    onHide: PropTypes.func,
+  }),
 };
 
 /* eslint-disable no-use-before-define, react/no-multi-comp */
@@ -156,15 +156,15 @@ class Modal extends React.Component {
     this.setModalRef = this.setModalRef.bind(this);
 
     this.state = {
-      style: {}
+      style: {},
     };
   }
 
   getChildContext() {
     return {
       $bs_modal: {
-        onHide: this.props.onHide
-      }
+        onHide: this.props.onHide,
+      },
     };
   }
 
@@ -210,7 +210,7 @@ class Modal extends React.Component {
 
     const document = ownerDocument(dialogNode);
     const bodyIsOverflowing = isOverflowing(
-      ReactDOM.findDOMNode(this.props.container || document.body)
+      ReactDOM.findDOMNode(this.props.container || document.body),
     );
     const modalIsOverflowing =
       dialogHeight > document.documentElement.clientHeight;
@@ -224,8 +224,8 @@ class Modal extends React.Component {
         paddingLeft:
           !bodyIsOverflowing && modalIsOverflowing
             ? getScrollbarSize()
-            : undefined
-      }
+            : undefined,
+      },
     });
   }
 
@@ -260,7 +260,7 @@ class Modal extends React.Component {
         backdropClassName={classNames(
           prefix(props, 'backdrop'),
           backdropClassName,
-          inClassName
+          inClassName,
         )}
         onEntering={createChainedFunction(onEntering, this.handleEntering)}
         onExited={createChainedFunction(onExited, this.handleExited)}

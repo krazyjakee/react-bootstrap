@@ -6,7 +6,7 @@ import {
   bsClass,
   getClassSet,
   prefix,
-  splitBsProps
+  splitBsProps,
 } from './utils/bootstrapUtils';
 
 const propTypes = {
@@ -15,7 +15,7 @@ const propTypes = {
   bordered: PropTypes.bool,
   condensed: PropTypes.bool,
   hover: PropTypes.bool,
-  responsive: PropTypes.bool
+  responsive: PropTypes.bool,
 };
 
 const defaultProps = {
@@ -24,7 +24,7 @@ const defaultProps = {
   condensed: false,
   hover: false,
   responsive: false,
-  striped: false
+  striped: false,
 };
 
 class Table extends React.Component {
@@ -49,7 +49,7 @@ class Table extends React.Component {
       [prefix(bsProps, 'striped')]: striped,
       [prefix(bsProps, 'bordered')]: bordered,
       [prefix(bsProps, 'condensed')]: condensed,
-      [prefix(bsProps, 'hover')]: hover
+      [prefix(bsProps, 'hover')]: hover,
     };
 
     return (

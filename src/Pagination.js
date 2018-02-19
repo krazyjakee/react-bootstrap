@@ -6,7 +6,7 @@ import PaginationItem, {
   Prev,
   Ellipsis,
   Next,
-  Last
+  Last,
 } from './PaginationItem';
 import { bsClass, getClassSet, splitBsProps } from './utils/bootstrapUtils';
 

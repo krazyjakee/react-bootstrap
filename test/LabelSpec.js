@@ -9,10 +9,10 @@ describe('Label', () => {
     let instance = ReactTestUtils.renderIntoDocument(
       <Label>
         <strong>Message</strong>
-      </Label>
+      </Label>,
     );
     assert.ok(
-      ReactTestUtils.findRenderedDOMComponentWithTag(instance, 'strong')
+      ReactTestUtils.findRenderedDOMComponentWithTag(instance, 'strong'),
     );
   });
 
@@ -24,7 +24,7 @@ describe('Label', () => {
   it('Should have bsStyle by default', () => {
     let instance = ReactTestUtils.renderIntoDocument(<Label>Message</Label>);
     assert.ok(
-      ReactDOM.findDOMNode(instance).className.match(/\blabel-default\b/)
+      ReactDOM.findDOMNode(instance).className.match(/\blabel-default\b/),
     );
   });
 

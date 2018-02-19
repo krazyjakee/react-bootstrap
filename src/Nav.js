@@ -11,7 +11,7 @@ import {
   bsStyles,
   getClassSet,
   prefix,
-  splitBsProps
+  splitBsProps,
 } from './utils/bootstrapUtils';
 import createChainedFunction from './utils/createChainedFunction';
 import ValidComponentChildren from './utils/ValidComponentChildren';
@@ -43,9 +43,9 @@ const propTypes = {
   justified: all(
     PropTypes.bool,
     ({ justified, navbar }) =>
-      justified && navbar
+      (justified && navbar
         ? Error('justified navbar `Nav`s are not supported')
-        : null
+        : null),
   ),
 
   /**
@@ -86,28 +86,28 @@ const propTypes = {
    * Float the Nav to the left. When `navbar` is `true` the appropriate
    * contextual classes are added as well.
    */
-  pullLeft: PropTypes.bool
+  pullLeft: PropTypes.bool,
 };
 
 const defaultProps = {
   justified: false,
   pullRight: false,
   pullLeft: false,
-  stacked: false
+  stacked: false,
 };
 
 const contextTypes = {
   $bs_navbar: PropTypes.shape({
     bsClass: PropTypes.string,
-    onSelect: PropTypes.func
+    onSelect: PropTypes.func,
   }),
 
   $bs_tabContainer: PropTypes.shape({
     activeKey: PropTypes.any,
     onSelect: PropTypes.func.isRequired,
     getTabId: PropTypes.func.isRequired,
-    getPaneId: PropTypes.func.isRequired
-  })
+    getPaneId: PropTypes.func.isRequired,
+  }),
 };
 
 class Nav extends React.Component {
@@ -122,7 +122,7 @@ class Nav extends React.Component {
     const { activeKey, activeHref } = this.getActiveProps();
 
     const activeChild = ValidComponentChildren.find(children, child =>
-      this.isActive(child, activeKey, activeHref)
+      this.isActive(child, activeKey, activeHref),
     );
 
     const childrenArray = ValidComponentChildren.toArray(children);
@@ -146,7 +146,7 @@ class Nav extends React.Component {
         this.props.activeKey == null && !this.props.activeHref,
         'Specifying a `<Nav>` `activeKey` or `activeHref` in the context of ' +
           'a `<TabContainer>` is not supported. Instead use `<TabContainer ' +
-          `activeKey={${this.props.activeKey}} />\`.`
+          `activeKey={${this.props.activeKey}} />\`.`,
       );
 
       return tabContainer;
@@ -158,12 +158,12 @@ class Nav extends React.Component {
   getNextActiveChild(offset) {
     const { children } = this.props;
     const validChildren = children.filter(
-      child => child.props.eventKey != null && !child.props.disabled
+      child => child.props.eventKey != null && !child.props.disabled,
     );
     const { activeKey, activeHref } = this.getActiveProps();
 
     const activeChild = ValidComponentChildren.find(children, child =>
-      this.isActive(child, activeKey, activeHref)
+      this.isActive(child, activeKey, activeHref),
     );
 
     // This assumes the active child is not disabled.
@@ -197,7 +197,7 @@ class Nav extends React.Component {
       eventKey,
       role,
       onKeyDown,
-      tabIndex
+      tabIndex,
     } = child.props;
 
     if (tabContainer) {
@@ -207,7 +207,7 @@ class Nav extends React.Component {
           'generated `id` and `aria-controls` attributes for the sake of ' +
           'proper component accessibility. Any provided ones will be ignored. ' +
           'To control these attributes directly, provide a `generateChildId` ' +
-          'prop to the parent `<TabContainer>`.'
+          'prop to the parent `<TabContainer>`.',
       );
 
       id = tabContainer.getTabId(eventKey);
@@ -218,7 +218,7 @@ class Nav extends React.Component {
       role = role || 'tab';
       onKeyDown = createChainedFunction(
         event => this.handleTabKeyDown(onSelect, event),
-        onKeyDown
+        onKeyDown,
       );
       tabIndex = active ? tabIndex : -1;
     }
@@ -228,7 +228,7 @@ class Nav extends React.Component {
       role,
       onKeyDown,
       'aria-controls': controls,
-      tabIndex
+      tabIndex,
     };
   }
 
@@ -296,7 +296,7 @@ class Nav extends React.Component {
     const classes = {
       ...getClassSet(bsProps),
       [prefix(bsProps, 'stacked')]: stacked,
-      [prefix(bsProps, 'justified')]: justified
+      [prefix(bsProps, 'justified')]: justified,
     };
 
     const navbar = propsNavbar != null ? propsNavbar : this.context.$bs_navbar;
@@ -324,13 +324,13 @@ class Nav extends React.Component {
         role={role}
         className={classNames(className, classes)}
       >
-        {ValidComponentChildren.map(children, child => {
+        {ValidComponentChildren.map(children, (child) => {
           const active = this.isActive(child, activeKey, activeHref);
           const childOnSelect = createChainedFunction(
             child.props.onSelect,
             onSelect,
             navbar && navbar.onSelect,
-            tabContainer && tabContainer.onSelect
+            tabContainer && tabContainer.onSelect,
           );
 
           return cloneElement(child, {
@@ -339,12 +339,12 @@ class Nav extends React.Component {
               tabContainer,
               role,
               active,
-              childOnSelect
+              childOnSelect,
             ),
             active,
             activeKey,
             activeHref,
-            onSelect: childOnSelect
+            onSelect: childOnSelect,
           });
         })}
       </ul>

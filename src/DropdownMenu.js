@@ -9,7 +9,7 @@ import {
   bsClass,
   getClassSet,
   prefix,
-  splitBsPropsAndOmit
+  splitBsPropsAndOmit,
 } from './utils/bootstrapUtils';
 import createChainedFunction from './utils/createChainedFunction';
 import ValidComponentChildren from './utils/ValidComponentChildren';
@@ -20,12 +20,12 @@ const propTypes = {
   onClose: PropTypes.func,
   labelledBy: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   onSelect: PropTypes.func,
-  rootCloseEvent: PropTypes.oneOf(['click', 'mousedown'])
+  rootCloseEvent: PropTypes.oneOf(['click', 'mousedown']),
 };
 
 const defaultProps = {
   bsRole: 'menu',
-  pullRight: false
+  pullRight: false,
 };
 
 class DropdownMenu extends React.Component {
@@ -110,7 +110,7 @@ class DropdownMenu extends React.Component {
 
     const classes = {
       ...getClassSet(bsProps),
-      [prefix(bsProps, 'right')]: pullRight
+      [prefix(bsProps, 'right')]: pullRight,
     };
 
     return (
@@ -129,10 +129,10 @@ class DropdownMenu extends React.Component {
             React.cloneElement(child, {
               onKeyDown: createChainedFunction(
                 child.props.onKeyDown,
-                this.handleKeyDown
+                this.handleKeyDown,
               ),
-              onSelect: createChainedFunction(child.props.onSelect, onSelect)
-            })
+              onSelect: createChainedFunction(child.props.onSelect, onSelect),
+            }),
           )}
         </div>
       </RootCloseWrapper>

@@ -5,8 +5,8 @@ import { prefix, bsClass, splitBsProps } from './utils/bootstrapUtils';
 
 const contextTypes = {
   $bs_panel: PropTypes.shape({
-    bsClass: PropTypes.string
-  })
+    bsClass: PropTypes.string,
+  }),
 };
 
 class PanelFooter extends React.Component {

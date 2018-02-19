@@ -8,7 +8,7 @@ import {
   bsClass,
   getClassSet,
   prefix,
-  splitBsProps
+  splitBsProps,
 } from './utils/bootstrapUtils';
 
 const propTypes = {
@@ -17,11 +17,11 @@ const propTypes = {
    */
   align: PropTypes.oneOf(['top', 'middle', 'bottom']),
 
-  componentClass: elementType
+  componentClass: elementType,
 };
 
 const defaultProps = {
-  componentClass: 'div'
+  componentClass: 'div',
 };
 
 class MediaBody extends React.Component {

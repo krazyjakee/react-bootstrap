@@ -27,7 +27,7 @@ const propTypes = {
   /**
    * onLoad callback that is passed down to the image inside this component
    */
-  onLoad: PropTypes.func
+  onLoad: PropTypes.func,
 };
 
 class Thumbnail extends React.Component {

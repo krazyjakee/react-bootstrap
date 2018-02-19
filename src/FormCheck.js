@@ -55,7 +55,7 @@ class FormCheck extends React.Component {
           className,
           getClassSet(bsProps),
           disabled && 'disabled',
-          inline && prefix(bsProps, 'inline')
+          inline && prefix(bsProps, 'inline'),
         )}
         style={style}
         title={title}
@@ -69,7 +69,7 @@ class FormCheck extends React.Component {
             className={classNames(
               prefix(bsProps, 'input'),
               isValid && prefix(bsProps, 'is-valid'),
-              isInvalid && prefix(bsProps, 'is-invalid')
+              isInvalid && prefix(bsProps, 'is-invalid'),
             )}
           />
           {children}

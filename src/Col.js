@@ -8,7 +8,7 @@ import { DEVICE_SIZES } from './utils/StyleConfig';
 
 const column = PropTypes.oneOfType([
   PropTypes.oneOf(['auto']),
-  PropTypes.number
+  PropTypes.number,
 ]);
 
 const propTypes = {
@@ -57,11 +57,11 @@ const propTypes = {
    *
    * class-prefix `col-xl-`
    */
-  xl: column
+  xl: column,
 };
 
 const defaultProps = {
-  componentClass: 'div'
+  componentClass: 'div',
 };
 
 class Col extends React.Component {
@@ -71,7 +71,7 @@ class Col extends React.Component {
 
     const classes = [];
 
-    DEVICE_SIZES.forEach(size => {
+    DEVICE_SIZES.forEach((size) => {
       const propValue = elementProps[size];
 
       if (propValue == null) return;
@@ -81,7 +81,7 @@ class Col extends React.Component {
         classes.push(
           propValue === true
             ? bsProps.bsClass
-            : prefix(bsProps, `-${propValue}`)
+            : prefix(bsProps, `-${propValue}`),
         );
       } else {
         // col-md-3

@@ -27,7 +27,7 @@ const propTypes = {
   /**
    * @private
    */
-  children: PropTypes.node
+  children: PropTypes.node,
 };
 
 class SplitButton extends React.Component {
@@ -43,7 +43,7 @@ class SplitButton extends React.Component {
 
     const [dropdownProps, buttonProps] = splitComponentProps(
       props,
-      Dropdown.ControlledComponent
+      Dropdown.ControlledComponent,
     );
 
     return (

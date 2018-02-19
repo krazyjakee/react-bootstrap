@@ -19,27 +19,27 @@ describe('Media.Left', () => {
 
   it('should be able to change alignment to middle', () => {
     const instance = ReactTestUtils.renderIntoDocument(
-      <Media.Left align="middle" />
+      <Media.Left align="middle" />,
     );
 
     assert.ok(
-      ReactDOM.findDOMNode(instance).className.match(/\bmedia-middle\b/)
+      ReactDOM.findDOMNode(instance).className.match(/\bmedia-middle\b/),
     );
   });
 
   it('should be able to change alignment to bottom', () => {
     const instance = ReactTestUtils.renderIntoDocument(
-      <Media.Left align="bottom" />
+      <Media.Left align="bottom" />,
     );
 
     assert.ok(
-      ReactDOM.findDOMNode(instance).className.match(/\bmedia-bottom\b/)
+      ReactDOM.findDOMNode(instance).className.match(/\bmedia-bottom\b/),
     );
   });
 
   it('should merge additional classes passed in', () => {
     const instance = ReactTestUtils.renderIntoDocument(
-      <Media.Left className="custom-class" />
+      <Media.Left className="custom-class" />,
     );
 
     assert.include(ReactDOM.findDOMNode(instance).className, 'media-left');
@@ -50,7 +50,7 @@ describe('Media.Left', () => {
     const instance = ReactTestUtils.renderIntoDocument(
       <Media.Left>
         <img />
-      </Media.Left>
+      </Media.Left>,
     );
     assert.ok(ReactTestUtils.findRenderedDOMComponentWithTag(instance, 'img'));
   });

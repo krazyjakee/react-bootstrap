@@ -12,17 +12,17 @@ const propTypes = {
    * A convenience prop that renders the Panel.Title as a panel collapse toggle component
    * for the common use-case.
    */
-  toggle: PropTypes.bool
+  toggle: PropTypes.bool,
 };
 
 const contextTypes = {
   $bs_panel: PropTypes.shape({
-    bsClass: PropTypes.string
-  })
+    bsClass: PropTypes.string,
+  }),
 };
 
 const defaultProps = {
-  componentClass: 'div'
+  componentClass: 'div',
 };
 
 class PanelTitle extends React.Component {

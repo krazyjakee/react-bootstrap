@@ -11,13 +11,13 @@ const propTypes = {
   next: PropTypes.bool,
   onClick: PropTypes.func,
   onSelect: PropTypes.func,
-  eventKey: PropTypes.any
+  eventKey: PropTypes.any,
 };
 
 const defaultProps = {
   disabled: false,
   previous: false,
-  next: false
+  next: false,
 };
 
 class PagerItem extends React.Component {

@@ -34,7 +34,7 @@ const components = [
   'table',
   'tabs',
   'tooltips',
-  'well'
+  'well',
 ];
 
 const utilities = ['custom-styles', 'transitions', 'responsive-embed'];

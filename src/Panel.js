@@ -7,7 +7,7 @@ import {
   bsStyles,
   bsClass,
   getClassSet,
-  splitBsPropsAndOmit
+  splitBsPropsAndOmit,
 } from './utils/bootstrapUtils';
 import { State, Style } from './utils/StyleConfig';
 import Body from './PanelBody';
@@ -39,15 +39,15 @@ const propTypes = {
   /**
    * An HTML `id` attribute uniquely identifying the Panel component.
    */
-  id: PropTypes.string
+  id: PropTypes.string,
 };
 
 const contextTypes = {
   $bs_panelGroup: PropTypes.shape({
     getId: PropTypes.func,
     activeKey: PropTypes.any,
-    onToggle: PropTypes.func
-  })
+    onToggle: PropTypes.func,
+  }),
 };
 
 const childContextTypes = {
@@ -56,8 +56,8 @@ const childContextTypes = {
     bodyId: PropTypes.string,
     bsClass: PropTypes.string,
     onToggle: PropTypes.func,
-    expanded: PropTypes.bool
-  })
+    expanded: PropTypes.bool,
+  }),
 };
 
 class Panel extends React.Component {
@@ -77,7 +77,7 @@ class Panel extends React.Component {
       getId = getId || defaultGetId;
       ids = {
         headingId: getId(idKey, 'heading'),
-        bodyId: getId(idKey, 'body')
+        bodyId: getId(idKey, 'body'),
       };
     }
 
@@ -86,8 +86,8 @@ class Panel extends React.Component {
         ...ids,
         bsClass: this.props.bsClass,
         expanded: this.getExpanded(),
-        onToggle: this.handleToggle
-      }
+        onToggle: this.handleToggle,
+      },
     };
   }
 
@@ -115,7 +115,7 @@ class Panel extends React.Component {
     const [bsProps, props] = splitBsPropsAndOmit(this.props, [
       'onToggle',
       'eventKey',
-      'expanded'
+      'expanded',
     ]);
 
     return (
@@ -137,10 +137,10 @@ const UncontrolledPanel = uncontrollable(
     bsStyles(
       [...Object.values(State), Style.DEFAULT, Style.PRIMARY],
       Style.DEFAULT,
-      Panel
-    )
+      Panel,
+    ),
   ),
-  { expanded: 'onToggle' }
+  { expanded: 'onToggle' },
 );
 
 Object.assign(UncontrolledPanel, {
@@ -149,7 +149,7 @@ Object.assign(UncontrolledPanel, {
   Body,
   Footer,
   Toggle,
-  Collapse
+  Collapse,
 });
 
 export default UncontrolledPanel;

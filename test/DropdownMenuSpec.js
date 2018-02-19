@@ -36,10 +36,10 @@ describe('<Dropdown.Menu>', () => {
 
   it('has aria-labelledby=<id>', () => {
     const instance1 = ReactTestUtils.renderIntoDocument(
-      <DropdownMenu labelledBy="herpa" />
+      <DropdownMenu labelledBy="herpa" />,
     );
     const instance2 = ReactTestUtils.renderIntoDocument(
-      <DropdownMenu labelledBy="derpa" />
+      <DropdownMenu labelledBy="derpa" />,
     );
     const node1 = ReactDOM.findDOMNode(instance1);
     const node2 = ReactDOM.findDOMNode(instance2);
@@ -48,9 +48,9 @@ describe('<Dropdown.Menu>', () => {
     node2.getAttribute('aria-labelledby').should.equal('derpa');
   });
 
-  it('forwards onSelect handler to MenuItems', done => {
+  it('forwards onSelect handler to MenuItems', (done) => {
     const selectedEvents = [];
-    const onSelect = eventKey => {
+    const onSelect = (eventKey) => {
       selectedEvents.push(eventKey);
 
       if (selectedEvents.length === 4) {
@@ -64,15 +64,15 @@ describe('<Dropdown.Menu>', () => {
         <MenuItem eventKey="2">Item 2</MenuItem>
         <MenuItem eventKey="3">Item 3</MenuItem>
         <MenuItem eventKey="4">Item 4</MenuItem>
-      </DropdownMenu>
+      </DropdownMenu>,
     );
 
     const menuItems = ReactTestUtils.scryRenderedDOMComponentsWithTag(
       instance,
-      'A'
+      'A',
     );
 
-    menuItems.forEach(item => {
+    menuItems.forEach((item) => {
       ReactTestUtils.Simulate.click(item);
     });
   });
@@ -88,7 +88,7 @@ describe('<Dropdown.Menu>', () => {
     const instance = ReactTestUtils.renderIntoDocument(
       <DropdownMenu pullRight>
         <MenuItem>Item</MenuItem>
-      </DropdownMenu>
+      </DropdownMenu>,
     );
     const node = ReactDOM.findDOMNode(instance);
 
@@ -100,7 +100,7 @@ describe('<Dropdown.Menu>', () => {
       <DropdownMenu pullRight>
         <MenuItem>Item</MenuItem>
         {false && <MenuItem>Item 2</MenuItem>}
-      </DropdownMenu>
+      </DropdownMenu>,
     );
   });
 
@@ -126,7 +126,7 @@ describe('<Dropdown.Menu>', () => {
             <MenuItem>Item</MenuItem>
           </DropdownMenu>
         </div>,
-        focusableContainer
+        focusableContainer,
       );
 
       const button = getOne(instance.getElementsByTagName('button'));
@@ -142,14 +142,14 @@ describe('<Dropdown.Menu>', () => {
 
         const items = ReactTestUtils.scryRenderedDOMComponentsWithTag(
           instance,
-          'A'
+          'A',
         );
         items.length.should.equal(4);
         items[0].focus();
 
         for (let i = 1; i < items.length; i++) {
           ReactTestUtils.Simulate.keyDown(document.activeElement, {
-            keyCode: keycode('down')
+            keyCode: keycode('down'),
           });
           document.activeElement.should.equal(items[i]);
         }
@@ -160,13 +160,13 @@ describe('<Dropdown.Menu>', () => {
 
         const items = ReactTestUtils.scryRenderedDOMComponentsWithTag(
           instance,
-          'A'
+          'A',
         );
         items.length.should.equal(4);
         items[3].focus();
 
         ReactTestUtils.Simulate.keyDown(document.activeElement, {
-          keyCode: keycode('down')
+          keyCode: keycode('down'),
         });
         document.activeElement.should.equal(items[0]);
       });
@@ -176,14 +176,14 @@ describe('<Dropdown.Menu>', () => {
 
         const items = ReactTestUtils.scryRenderedDOMComponentsWithTag(
           instance,
-          'A'
+          'A',
         );
         items.length.should.equal(4);
         items[3].focus();
 
         for (let i = 2; i >= 0; i--) {
           ReactTestUtils.Simulate.keyDown(document.activeElement, {
-            keyCode: keycode('up')
+            keyCode: keycode('up'),
           });
           document.activeElement.should.equal(items[i]);
         }
@@ -194,30 +194,30 @@ describe('<Dropdown.Menu>', () => {
 
         const items = ReactTestUtils.scryRenderedDOMComponentsWithTag(
           instance,
-          'A'
+          'A',
         );
         items.length.should.equal(4);
         items[0].focus();
 
         ReactTestUtils.Simulate.keyDown(document.activeElement, {
-          keyCode: keycode('up')
+          keyCode: keycode('up'),
         });
         document.activeElement.should.equal(items[3]);
       });
 
-      ['esc', 'tab'].forEach(key => {
+      ['esc', 'tab'].forEach((key) => {
         it(`when the key "${key}" is pressed the requestClose prop is invoked with the originating event`, () => {
           const requestClose = sinon.spy();
           const instance = ReactDOM.render(
             <DropdownMenu onClose={requestClose}>
               <MenuItem>Item</MenuItem>
             </DropdownMenu>,
-            focusableContainer
+            focusableContainer,
           );
 
           const item = ReactTestUtils.findRenderedDOMComponentWithTag(
             instance,
-            'A'
+            'A',
           );
 
           ReactTestUtils.Simulate.keyDown(item, { keyCode: keycode(key) });
@@ -233,7 +233,7 @@ describe('<Dropdown.Menu>', () => {
     let instance = ReactTestUtils.renderIntoDocument(
       <DropdownMenu className="new-fancy-class">
         <MenuItem eventKey="1">MenuItem 1 content</MenuItem>
-      </DropdownMenu>
+      </DropdownMenu>,
     );
 
     let node = ReactDOM.findDOMNode(instance);

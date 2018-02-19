@@ -7,7 +7,7 @@ import {
   bsClass,
   bsSizes,
   getClassSet,
-  splitBsProps
+  splitBsProps,
 } from './utils/bootstrapUtils';
 import { Size } from './utils/StyleConfig';
 
@@ -29,5 +29,5 @@ InputGroup.Button = InputGroupButton;
 
 export default bsClass(
   'input-group',
-  bsSizes([Size.LARGE, Size.SMALL], InputGroup)
+  bsSizes([Size.LARGE, Size.SMALL], InputGroup),
 );

@@ -34,7 +34,7 @@ const propTypes = {
    * @required
    */
   id: isRequiredForA11y(
-    PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+    PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   ),
 
   componentClass: elementType,
@@ -45,7 +45,7 @@ const propTypes = {
    */
   children: all(
     requiredRoles(TOGGLE_ROLE, MENU_ROLE),
-    exclusiveRoles(MENU_ROLE)
+    exclusiveRoles(MENU_ROLE),
   ),
 
   /**
@@ -109,11 +109,11 @@ const propTypes = {
   /**
    * @private
    */
-  onMouseLeave: PropTypes.func
+  onMouseLeave: PropTypes.func,
 };
 
 const defaultProps = {
-  componentClass: ButtonGroup
+  componentClass: ButtonGroup,
 };
 
 class Dropdown extends React.Component {
@@ -136,7 +136,7 @@ class Dropdown extends React.Component {
     if (!nextProps.open && this.props.open) {
       this._focusInDropdown = contains(
         ReactDOM.findDOMNode(this.menu),
-        activeElement(document)
+        activeElement(document),
       );
     }
   }
@@ -233,7 +233,7 @@ class Dropdown extends React.Component {
   }
 
   renderMenu(child, { id, onSelect, rootCloseEvent, ...props }) {
-    let ref = c => {
+    let ref = (c) => {
       this.menu = c;
     };
 
@@ -242,7 +242,7 @@ class Dropdown extends React.Component {
         false,
         'String refs are not supported on `<Dropdown.Menu>` components. ' +
           'To apply a ref to the component use the callback signature:\n\n ' +
-          'https://facebook.github.io/react/docs/more-about-refs.html#the-ref-callback-attribute'
+          'https://facebook.github.io/react/docs/more-about-refs.html#the-ref-callback-attribute',
       );
     } else {
       ref = createChainedFunction(child.ref, ref);
@@ -257,14 +257,14 @@ class Dropdown extends React.Component {
       onSelect: createChainedFunction(
         child.props.onSelect,
         onSelect,
-        (key, event) => this.handleClose(event, { source: 'select' })
+        (key, event) => this.handleClose(event, { source: 'select' }),
       ),
-      rootCloseEvent
+      rootCloseEvent,
     });
   }
 
   renderToggle(child, props) {
-    let ref = c => {
+    let ref = (c) => {
       this.toggle = c;
     };
 
@@ -273,7 +273,7 @@ class Dropdown extends React.Component {
         false,
         'String refs are not supported on `<Dropdown.Toggle>` components. ' +
           'To apply a ref to the component use the callback signature:\n\n ' +
-          'https://facebook.github.io/react/docs/more-about-refs.html#the-ref-callback-attribute'
+          'https://facebook.github.io/react/docs/more-about-refs.html#the-ref-callback-attribute',
       );
     } else {
       ref = createChainedFunction(child.ref, ref);
@@ -286,8 +286,8 @@ class Dropdown extends React.Component {
       onClick: createChainedFunction(child.props.onClick, this.handleClick),
       onKeyDown: createChainedFunction(
         child.props.onKeyDown,
-        this.handleKeyDown
-      )
+        this.handleKeyDown,
+      ),
     });
   }
 
@@ -313,7 +313,7 @@ class Dropdown extends React.Component {
     const classes = {
       [bsClass]: true,
       open,
-      disabled
+      disabled,
     };
 
     if (dropup) {
@@ -326,7 +326,7 @@ class Dropdown extends React.Component {
 
     return (
       <Component {...props} className={classNames(className, classes)}>
-        {ValidComponentChildren.map(children, child => {
+        {ValidComponentChildren.map(children, (child) => {
           switch (child.props.bsRole) {
             case TOGGLE_ROLE:
               return this.renderToggle(child, {
@@ -334,7 +334,7 @@ class Dropdown extends React.Component {
                 disabled,
                 open,
                 role,
-                bsClass
+                bsClass,
               });
             case MENU_ROLE:
               return this.renderMenu(child, {
@@ -343,7 +343,7 @@ class Dropdown extends React.Component {
                 pullRight,
                 bsClass,
                 onSelect,
-                rootCloseEvent
+                rootCloseEvent,
               });
             default:
               return child;

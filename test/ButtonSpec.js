@@ -17,7 +17,7 @@ describe('<Button>', () => {
 
   it('Should show the type if passed one', () => {
     let instance = ReactTestUtils.renderIntoDocument(
-      <Button type="submit">Title</Button>
+      <Button type="submit">Title</Button>,
     );
     assert.equal(ReactDOM.findDOMNode(instance).getAttribute('type'), 'submit');
   });
@@ -25,25 +25,25 @@ describe('<Button>', () => {
   it('Should output an anchor if called with a href', () => {
     let href = '/url';
     let instance = ReactTestUtils.renderIntoDocument(
-      <Button href={href}>Title</Button>
+      <Button href={href}>Title</Button>,
     );
     assert.equal(ReactDOM.findDOMNode(instance).nodeName, 'A');
     assert.equal(ReactDOM.findDOMNode(instance).getAttribute('href'), href);
   });
 
-  it('Should call onClick callback', done => {
+  it('Should call onClick callback', (done) => {
     let doneOp = () => {
       done();
     };
     let instance = ReactTestUtils.renderIntoDocument(
-      <Button onClick={doneOp}>Title</Button>
+      <Button onClick={doneOp}>Title</Button>,
     );
     ReactTestUtils.Simulate.click(ReactDOM.findDOMNode(instance));
   });
 
   it('Should be disabled', () => {
     let instance = ReactTestUtils.renderIntoDocument(
-      <Button disabled>Title</Button>
+      <Button disabled>Title</Button>,
     );
     assert.ok(ReactDOM.findDOMNode(instance).disabled);
   });
@@ -52,21 +52,21 @@ describe('<Button>', () => {
     let instance = ReactTestUtils.renderIntoDocument(
       <Button disabled href="#">
         Title
-      </Button>
+      </Button>,
     );
     assert.ok(ReactDOM.findDOMNode(instance).className.match(/\bdisabled\b/));
   });
 
   it('Should have block class', () => {
     let instance = ReactTestUtils.renderIntoDocument(
-      <Button block>Title</Button>
+      <Button block>Title</Button>,
     );
     assert.ok(ReactDOM.findDOMNode(instance).className.match(/\bbtn-block\b/));
   });
 
   it('Should apply bsStyle class', () => {
     let instance = ReactTestUtils.renderIntoDocument(
-      <Button bsStyle="danger">Title</Button>
+      <Button bsStyle="danger">Title</Button>,
     );
     assert.ok(ReactDOM.findDOMNode(instance).className.match(/\bbtn-danger\b/));
   });
@@ -75,7 +75,7 @@ describe('<Button>', () => {
     let instance = ReactTestUtils.renderIntoDocument(
       <Button className="bob" bsStyle="danger">
         Title
-      </Button>
+      </Button>,
     );
     assert.ok(ReactDOM.findDOMNode(instance).className.match(/\bbob\b/));
     assert.ok(ReactDOM.findDOMNode(instance).className.match(/\bbtn-danger\b/));
@@ -83,14 +83,14 @@ describe('<Button>', () => {
 
   it('Should default to bsStyle="default"', () => {
     let instance = ReactTestUtils.renderIntoDocument(
-      <Button bsStyle="default">Title</Button>
+      <Button bsStyle="default">Title</Button>,
     );
     assert.equal(instance.props.bsStyle, 'default');
   });
 
   it('Should be active', () => {
     let instance = ReactTestUtils.renderIntoDocument(
-      <Button active>Title</Button>
+      <Button active>Title</Button>,
     );
     assert.ok(ReactDOM.findDOMNode(instance).className.match(/\bactive\b/));
   });

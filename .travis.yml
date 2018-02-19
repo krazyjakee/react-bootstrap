@@ -10,7 +10,6 @@ env:
 
 cache:
   directories:
-    - ~/.yarn-cache
     - node_modules
     - www/node_modules
 
@@ -20,7 +19,7 @@ before_install:
   - sh -e /etc/init.d/xvfb start
 
 install:
-  - yarn && yarn run bootstrap-docs
+  - npm install && npm run bootstrap-docs
 
 after_success:
   - node_modules/.bin/codecov

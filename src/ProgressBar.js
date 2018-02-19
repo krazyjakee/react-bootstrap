@@ -7,7 +7,7 @@ import {
   bsStyles,
   getClassSet,
   prefix,
-  splitBsProps
+  splitBsProps,
 } from './utils/bootstrapUtils';
 import { State } from './utils/StyleConfig';
 import ValidComponentChildren from './utils/ValidComponentChildren';
@@ -25,7 +25,7 @@ function onlyProgressBar(props, propName, componentName) {
 
   let error = null;
 
-  React.Children.forEach(children, child => {
+  React.Children.forEach(children, (child) => {
     if (error) {
       return;
     }
@@ -38,7 +38,7 @@ function onlyProgressBar(props, propName, componentName) {
       : child;
     error = new Error(
       `Children of ${componentName} can contain only ProgressBar ` +
-        `components. Found ${childIdentifier}.`
+        `components. Found ${childIdentifier}.`,
     );
   });
 
@@ -58,7 +58,7 @@ const propTypes = {
   /**
    * @private
    */
-  isChild: PropTypes.bool
+  isChild: PropTypes.bool,
 };
 
 const defaultProps = {
@@ -67,7 +67,7 @@ const defaultProps = {
   active: false,
   isChild: false,
   srOnly: false,
-  striped: false
+  striped: false,
 };
 
 function getPercentage(now, min, max) {
@@ -93,7 +93,7 @@ class ProgressBar extends React.Component {
     const classes = {
       ...getClassSet(bsProps),
       active,
-      [prefix(bsProps, 'striped')]: active || striped
+      [prefix(bsProps, 'striped')]: active || striped,
     };
 
     return (
@@ -137,19 +137,19 @@ class ProgressBar extends React.Component {
       <div {...wrapperProps} className={classNames(className, 'progress')}>
         {children
           ? ValidComponentChildren.map(children, child =>
-              cloneElement(child, { isChild: true })
-            )
+            cloneElement(child, { isChild: true }),
+          )
           : this.renderProgressBar({
-              min,
-              now,
-              max,
-              label,
-              srOnly,
-              striped,
-              active,
-              bsClass,
-              bsStyle
-            })}
+            min,
+            now,
+            max,
+            label,
+            srOnly,
+            striped,
+            active,
+            bsClass,
+            bsStyle,
+          })}
       </div>
     );
   }
@@ -160,5 +160,5 @@ ProgressBar.defaultProps = defaultProps;
 
 export default setBsClass(
   'progress-bar',
-  bsStyles(Object.values(State), ProgressBar)
+  bsStyles(Object.values(State), ProgressBar),
 );

@@ -12,16 +12,16 @@ const propTypes = {
    */
   htmlFor: PropTypes.string,
   column: PropTypes.bool,
-  srOnly: PropTypes.bool
+  srOnly: PropTypes.bool,
 };
 
 const defaultProps = {
   column: false,
-  srOnly: false
+  srOnly: false,
 };
 
 const contextTypes = {
-  $bs_formGroup: PropTypes.object
+  $bs_formGroup: PropTypes.object,
 };
 
 class FormLabel extends React.Component {
@@ -40,12 +40,12 @@ class FormLabel extends React.Component {
 
     warning(
       controlId == null || htmlFor === controlId,
-      '`controlId` is ignored on `<FormLabel>` when `htmlFor` is specified.'
+      '`controlId` is ignored on `<FormLabel>` when `htmlFor` is specified.',
     );
 
     const classes = {
       ...getClassSet(bsProps),
-      'sr-only': srOnly
+      'sr-only': srOnly,
     };
 
     if (column) {

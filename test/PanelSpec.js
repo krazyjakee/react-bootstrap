@@ -9,7 +9,7 @@ describe('<Panel>', () => {
     const inst = mount(
       <Panel>
         <Panel.Body>Panel content</Panel.Body>
-      </Panel>
+      </Panel>,
     );
 
     inst.assertSingle('div.panel.panel-default');
@@ -20,7 +20,7 @@ describe('<Panel>', () => {
     mount(
       <Panel bsStyle="primary">
         <Panel.Body>Panel content</Panel.Body>
-      </Panel>
+      </Panel>,
     ).assertSingle('div.panel-primary');
   });
 
@@ -32,7 +32,7 @@ describe('<Panel>', () => {
     mount(
       <Panel>
         <Panel.Heading>Heading</Panel.Heading>
-      </Panel>
+      </Panel>,
     )
       .assertSingle('div.panel-heading')
       .text()
@@ -43,7 +43,7 @@ describe('<Panel>', () => {
     mount(
       <Panel>
         <Panel.Heading componentClass="h3">Heading</Panel.Heading>
-      </Panel>
+      </Panel>,
     )
       .assertSingle('h3.panel-heading')
       .text()
@@ -60,13 +60,13 @@ describe('<Panel>', () => {
 
     it('Should render a custom component', () => {
       mount(<Panel.Title componentClass="h3">foo</Panel.Title>).assertSingle(
-        'h3.panel-title'
+        'h3.panel-title',
       );
     });
 
     it('Should render with a toggle', () => {
       mount(<Panel.Title toggle>foo</Panel.Title>).assertSingle(
-        '.panel-title > PanelToggle'
+        '.panel-title > PanelToggle',
       );
     });
   });
@@ -80,15 +80,15 @@ describe('<Panel>', () => {
 
     it('Should render a custom component', () => {
       mount(<Panel.Toggle componentClass="h3">foo</Panel.Toggle>).assertSingle(
-        'h3'
+        'h3',
       );
     });
 
-    it('Should simulate onToggle', done => {
+    it('Should simulate onToggle', (done) => {
       mount(
         <Panel onToggle={() => done()}>
           <Panel.Toggle>foo</Panel.Toggle>
-        </Panel>
+        </Panel>,
       )
         .assertSingle('PanelToggle')
         .simulate('click');
@@ -99,7 +99,7 @@ describe('<Panel>', () => {
     mount(
       <Panel>
         <Panel.Footer>foo</Panel.Footer>
-      </Panel>
+      </Panel>,
     ).assertSingle('div.panel-footer');
   });
 
@@ -107,7 +107,7 @@ describe('<Panel>', () => {
     mount(
       <Panel defaultExpanded>
         <Panel.Body collapsible>Panel content</Panel.Body>
-      </Panel>
+      </Panel>,
     ).assertSingle('div.panel-collapse.collapse.in');
   });
 
@@ -122,7 +122,7 @@ describe('<Panel>', () => {
           <Panel.Title toggle>foo</Panel.Title>
         </Panel.Heading>
         <Panel.Body collapsible>Panel content</Panel.Body>
-      </Panel>
+      </Panel>,
     );
 
     inst.assertSingle('#testid--body.panel-collapse');
@@ -137,7 +137,7 @@ describe('<Panel>', () => {
         </Panel.Heading>
 
         <Panel.Body collapsible>Panel content</Panel.Body>
-      </Panel>
+      </Panel>,
     );
 
     inst.assertSingle('.in.panel-collapse');
@@ -152,7 +152,7 @@ describe('<Panel>', () => {
         </Panel.Heading>
 
         <Panel.Body collapsible>Panel content</Panel.Body>
-      </Panel>
+      </Panel>,
     );
 
     inst.assertNone('.in.panel-collapse');
@@ -167,7 +167,7 @@ describe('<Panel>', () => {
         </Panel.Heading>
 
         <Panel.Body collapsible>Panel content</Panel.Body>
-      </Panel>
+      </Panel>,
     );
 
     inst.assertSingle('a').simulate('click');
@@ -187,7 +187,7 @@ describe('<Panel>', () => {
           </Panel.Heading>
 
           <Panel.Body collapsible>Panel content</Panel.Body>
-        </Panel>
+        </Panel>,
       ).assertSingle('.panel-title a[aria-expanded=true]');
     });
 
@@ -199,7 +199,7 @@ describe('<Panel>', () => {
           </Panel.Heading>
 
           <Panel.Body collapsible>Panel content</Panel.Body>
-        </Panel>
+        </Panel>,
       )
         .assertSingle('.panel-title a')
         .assertSingle('[aria-expanded=false]');
@@ -213,7 +213,7 @@ describe('<Panel>', () => {
           </Panel.Heading>
 
           <Panel.Body collapsible>Panel content</Panel.Body>
-        </Panel>
+        </Panel>,
       );
 
       inst.assertSingle('a[aria-controls="testid--body"]');

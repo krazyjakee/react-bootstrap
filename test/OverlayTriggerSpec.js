@@ -19,7 +19,7 @@ describe('<OverlayTrigger>', () => {
     const instance = ReactTestUtils.renderIntoDocument(
       <OverlayTrigger overlay={<Div>test</Div>}>
         <button>button</button>
-      </OverlayTrigger>
+      </OverlayTrigger>,
     );
     const overlayTrigger = ReactDOM.findDOMNode(instance);
     assert.equal(overlayTrigger.nodeName, 'BUTTON');
@@ -30,7 +30,7 @@ describe('<OverlayTrigger>', () => {
     const instance = ReactTestUtils.renderIntoDocument(
       <OverlayTrigger overlay={<Div>test</Div>} onClick={callback}>
         <button>button</button>
-      </OverlayTrigger>
+      </OverlayTrigger>,
     );
     const overlayTrigger = ReactDOM.findDOMNode(instance);
     ReactTestUtils.Simulate.click(overlayTrigger);
@@ -41,7 +41,7 @@ describe('<OverlayTrigger>', () => {
     const instance = ReactTestUtils.renderIntoDocument(
       <OverlayTrigger trigger="click" overlay={<Div>test</Div>}>
         <button>button</button>
-      </OverlayTrigger>
+      </OverlayTrigger>,
     );
     const overlayTrigger = ReactDOM.findDOMNode(instance);
     ReactTestUtils.Simulate.click(overlayTrigger);
@@ -53,7 +53,7 @@ describe('<OverlayTrigger>', () => {
     const instance = ReactTestUtils.renderIntoDocument(
       <OverlayTrigger trigger="click" overlay={<Div>test</Div>}>
         <button>button</button>
-      </OverlayTrigger>
+      </OverlayTrigger>,
     );
     const overlayTrigger = ReactDOM.findDOMNode(instance);
 
@@ -64,7 +64,7 @@ describe('<OverlayTrigger>', () => {
     const instance = ReactTestUtils.renderIntoDocument(
       <OverlayTrigger trigger="click" overlay={<Div id="overlayid">test</Div>}>
         <button>button</button>
-      </OverlayTrigger>
+      </OverlayTrigger>,
     );
     const overlayTrigger = ReactDOM.findDOMNode(instance);
     ReactTestUtils.Simulate.click(overlayTrigger);
@@ -85,7 +85,7 @@ describe('<OverlayTrigger>', () => {
       document.body.removeChild(mountPoint);
     });
 
-    it('Should keep trigger handlers', done => {
+    it('Should keep trigger handlers', (done) => {
       const instance = render(
         <div>
           <OverlayTrigger trigger="focus" overlay={<Div>test</Div>}>
@@ -93,7 +93,7 @@ describe('<OverlayTrigger>', () => {
           </OverlayTrigger>
           <input id="target" />
         </div>,
-        mountPoint
+        mountPoint,
       );
 
       const overlayTrigger = instance.firstChild;
@@ -108,7 +108,7 @@ describe('<OverlayTrigger>', () => {
         overlay={<Div className="test-overlay">test</Div>}
       >
         <button>button</button>
-      </OverlayTrigger>
+      </OverlayTrigger>,
     );
 
     const overlayTrigger = ReactDOM.findDOMNode(instance);
@@ -117,7 +117,7 @@ describe('<OverlayTrigger>', () => {
     expect(document.getElementsByClassName('test-overlay').length).to.equal(1);
   });
 
-  it('Should pass transition callbacks to Transition', done => {
+  it('Should pass transition callbacks to Transition', (done) => {
     let count = 0;
     const increment = () => count++;
 
@@ -142,7 +142,7 @@ describe('<OverlayTrigger>', () => {
         }}
       >
         <button>button</button>
-      </OverlayTrigger>
+      </OverlayTrigger>,
     );
 
     overlayTrigger = ReactDOM.findDOMNode(instance);
@@ -151,7 +151,7 @@ describe('<OverlayTrigger>', () => {
 
   it('Should forward requested context', () => {
     const contextTypes = {
-      key: PropTypes.string
+      key: PropTypes.string,
     };
 
     const contextSpy = sinon.spy();
@@ -191,13 +191,13 @@ describe('<OverlayTrigger>', () => {
     [
       {
         name: 'Popover',
-        overlay: <Popover id="test-popover">test</Popover>
+        overlay: <Popover id="test-popover">test</Popover>,
       },
       {
         name: 'Tooltip',
-        overlay: <Tooltip id="test-tooltip">test</Tooltip>
-      }
-    ].forEach(testCase => {
+        overlay: <Tooltip id="test-tooltip">test</Tooltip>,
+      },
+    ].forEach((testCase) => {
       describe(testCase.name, () => {
         let instance;
         let overlayTrigger;
@@ -206,7 +206,7 @@ describe('<OverlayTrigger>', () => {
           instance = ReactTestUtils.renderIntoDocument(
             <OverlayTrigger trigger="click" overlay={testCase.overlay}>
               <button>button</button>
-            </OverlayTrigger>
+            </OverlayTrigger>,
           );
           overlayTrigger = ReactDOM.findDOMNode(instance);
         });
@@ -223,14 +223,14 @@ describe('<OverlayTrigger>', () => {
       {
         label: 'true',
         rootClose: true,
-        shownAfterClick: false
+        shownAfterClick: false,
       },
       {
         label: 'default (false)',
         rootClose: null,
-        shownAfterClick: true
-      }
-    ].forEach(testCase => {
+        shownAfterClick: true,
+      },
+    ].forEach((testCase) => {
       describe(testCase.label, () => {
         let instance;
 
@@ -242,7 +242,7 @@ describe('<OverlayTrigger>', () => {
               rootClose={testCase.rootClose}
             >
               <button>button</button>
-            </OverlayTrigger>
+            </OverlayTrigger>,
           );
           const overlayTrigger = ReactDOM.findDOMNode(instance);
           ReactTestUtils.Simulate.click(overlayTrigger);
@@ -275,7 +275,7 @@ describe('<OverlayTrigger>', () => {
           <OverlayTrigger overlay={<Div>test</Div>} trigger="click" rootClose>
             <button>button</button>
           </OverlayTrigger>,
-          mountNode
+          mountNode,
         );
 
         const node = ReactDOM.findDOMNode(instance);
@@ -328,7 +328,7 @@ describe('<OverlayTrigger>', () => {
             rootClose
           >
             <button>button</button>
-          </OverlayTrigger>
+          </OverlayTrigger>,
         );
         const overlayTrigger = ReactDOM.findDOMNode(instance);
         ReactTestUtils.Simulate.click(overlayTrigger);

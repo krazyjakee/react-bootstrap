@@ -12,12 +12,12 @@ const propTypes = {
   href: PropTypes.string,
   onClick: PropTypes.func,
   onSelect: PropTypes.func,
-  eventKey: PropTypes.any
+  eventKey: PropTypes.any,
 };
 
 const defaultProps = {
   active: false,
-  disabled: false
+  disabled: false,
 };
 
 class NavItem extends React.Component {

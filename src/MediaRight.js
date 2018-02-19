@@ -7,14 +7,14 @@ import {
   bsClass,
   getClassSet,
   prefix,
-  splitBsProps
+  splitBsProps,
 } from './utils/bootstrapUtils';
 
 const propTypes = {
   /**
    * Align the media to the top, middle, or bottom of the media object.
    */
-  align: PropTypes.oneOf(['top', 'middle', 'bottom'])
+  align: PropTypes.oneOf(['top', 'middle', 'bottom']),
 };
 
 class MediaRight extends React.Component {

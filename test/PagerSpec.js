@@ -9,7 +9,7 @@ describe('Pager', () => {
     let instance = ReactTestUtils.renderIntoDocument(<Pager />);
     assert.equal(ReactDOM.findDOMNode(instance).nodeName, 'UL');
     assert.ok(
-      ReactTestUtils.findRenderedDOMComponentWithClass(instance, 'pager')
+      ReactTestUtils.findRenderedDOMComponentWithClass(instance, 'pager'),
     );
   });
 
@@ -17,7 +17,7 @@ describe('Pager', () => {
     let instance = ReactTestUtils.renderIntoDocument(
       <Pager>
         <Pager.Item href="#">Top</Pager.Item>
-      </Pager>
+      </Pager>,
     );
     assert.equal(ReactDOM.findDOMNode(instance).children.length, 1);
     assert.equal(ReactDOM.findDOMNode(instance).children[0].nodeName, 'LI');
@@ -35,20 +35,20 @@ describe('Pager', () => {
         <Pager.Item next href="#">
           Next
         </Pager.Item>
-      </Pager>
+      </Pager>,
     );
     assert.ok(
-      ReactTestUtils.findRenderedDOMComponentWithClass(instance, 'previous')
+      ReactTestUtils.findRenderedDOMComponentWithClass(instance, 'previous'),
     );
     assert.ok(
-      ReactTestUtils.findRenderedDOMComponentWithClass(instance, 'disabled')
+      ReactTestUtils.findRenderedDOMComponentWithClass(instance, 'disabled'),
     );
     assert.ok(
-      ReactTestUtils.findRenderedDOMComponentWithClass(instance, 'next')
+      ReactTestUtils.findRenderedDOMComponentWithClass(instance, 'next'),
     );
   });
 
-  it('Should call "onSelect" when item is clicked', done => {
+  it('Should call "onSelect" when item is clicked', (done) => {
     function handleSelect(key, e) {
       assert.equal(key, 2);
       assert.equal(e.target.hash, '#next');
@@ -62,16 +62,16 @@ describe('Pager', () => {
         <Pager.Item eventKey={2} href="#next">
           Next
         </Pager.Item>
-      </Pager>
+      </Pager>,
     );
 
     let items = ReactTestUtils.scryRenderedComponentsWithType(
       instance,
-      Pager.Item
+      Pager.Item,
     );
 
     ReactTestUtils.Simulate.click(
-      ReactTestUtils.findRenderedDOMComponentWithTag(items[1], 'a')
+      ReactTestUtils.findRenderedDOMComponentWithTag(items[1], 'a'),
     );
   });
 });

@@ -5,7 +5,7 @@ import {
   bsClass,
   bsSizes,
   getClassSet,
-  splitBsProps
+  splitBsProps,
 } from './utils/bootstrapUtils';
 import { Size } from './utils/StyleConfig';
 

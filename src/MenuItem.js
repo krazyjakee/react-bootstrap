@@ -25,9 +25,9 @@ const propTypes = {
   divider: all(
     PropTypes.bool,
     ({ divider, children }) =>
-      divider && children
+      (divider && children
         ? new Error('Children will not be rendered for dividers')
-        : null
+        : null),
   ),
 
   /**
@@ -57,13 +57,13 @@ const propTypes = {
    * (eventKey: any, event: Object) => any
    * ```
    */
-  onSelect: PropTypes.func
+  onSelect: PropTypes.func,
 };
 
 const defaultProps = {
   divider: false,
   disabled: false,
-  header: false
+  header: false,
 };
 
 class MenuItem extends React.Component {
@@ -102,7 +102,7 @@ class MenuItem extends React.Component {
 
     const [bsProps, elementProps] = splitBsPropsAndOmit(props, [
       'eventKey',
-      'onSelect'
+      'onSelect',
     ]);
 
     if (divider) {
@@ -136,7 +136,7 @@ class MenuItem extends React.Component {
         className={classNames(
           className,
           prefix(bsProps, 'item'),
-          { active, disabled }
+          { active, disabled },
         )}
         onClick={createChainedFunction(onClick, this.handleClick)}
       />

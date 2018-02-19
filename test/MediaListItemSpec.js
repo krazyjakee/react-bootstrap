@@ -17,7 +17,7 @@ describe('Media.ListItem', () => {
   });
   it('should merge additional classes passed in', () => {
     const instance = ReactTestUtils.renderIntoDocument(
-      <Media.ListItem className="custom-class" />
+      <Media.ListItem className="custom-class" />,
     );
     const classes = ReactDOM.findDOMNode(instance).className;
 
@@ -28,10 +28,10 @@ describe('Media.ListItem', () => {
     const instance = ReactTestUtils.renderIntoDocument(
       <Media.ListItem>
         <strong>Content</strong>
-      </Media.ListItem>
+      </Media.ListItem>,
     );
     assert.ok(
-      ReactTestUtils.findRenderedDOMComponentWithTag(instance, 'strong')
+      ReactTestUtils.findRenderedDOMComponentWithTag(instance, 'strong'),
     );
   });
 });

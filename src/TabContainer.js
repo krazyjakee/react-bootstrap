@@ -22,7 +22,7 @@ const propTypes = {
         error = new Error(
           'In order to properly initialize Tabs in a way that is accessible ' +
             'to assistive technologies (such as screen readers) an `id` or a ' +
-            '`generateChildId` prop to TabContainer is required'
+            '`generateChildId` prop to TabContainer is required',
         );
       }
     }
@@ -55,7 +55,7 @@ const propTypes = {
    *
    * @controllable onSelect
    */
-  activeKey: PropTypes.any
+  activeKey: PropTypes.any,
 };
 
 const childContextTypes = {
@@ -63,8 +63,8 @@ const childContextTypes = {
     activeKey: PropTypes.any,
     onSelect: PropTypes.func.isRequired,
     getTabId: PropTypes.func.isRequired,
-    getPaneId: PropTypes.func.isRequired
-  })
+    getPaneId: PropTypes.func.isRequired,
+  }),
 };
 
 class TabContainer extends React.Component {
@@ -79,8 +79,8 @@ class TabContainer extends React.Component {
         activeKey,
         onSelect,
         getTabId: key => getId(key, TAB),
-        getPaneId: key => getId(key, PANE)
-      }
+        getPaneId: key => getId(key, PANE),
+      },
     };
   }
 

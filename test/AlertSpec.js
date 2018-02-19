@@ -9,10 +9,10 @@ describe('<Alert>', () => {
     let instance = ReactTestUtils.renderIntoDocument(
       <Alert>
         <strong>Message</strong>
-      </Alert>
+      </Alert>,
     );
     assert.ok(
-      ReactTestUtils.findRenderedDOMComponentWithTag(instance, 'strong')
+      ReactTestUtils.findRenderedDOMComponentWithTag(instance, 'strong'),
     );
   });
 
@@ -24,19 +24,19 @@ describe('<Alert>', () => {
   it('Should have dismissable style with onDismiss', () => {
     let noOp = () => {};
     let instance = ReactTestUtils.renderIntoDocument(
-      <Alert onDismiss={noOp}>Message</Alert>
+      <Alert onDismiss={noOp}>Message</Alert>,
     );
     assert.ok(
-      ReactDOM.findDOMNode(instance).className.match(/\balert-dismissable\b/)
+      ReactDOM.findDOMNode(instance).className.match(/\balert-dismissable\b/),
     );
   });
 
-  it('Should call onDismiss callback on dismiss click', done => {
+  it('Should call onDismiss callback on dismiss click', (done) => {
     let doneOp = () => {
       done();
     };
     let instance = ReactTestUtils.renderIntoDocument(
-      <Alert onDismiss={doneOp}>Message</Alert>
+      <Alert onDismiss={doneOp}>Message</Alert>,
     );
     ReactTestUtils.Simulate.click(ReactDOM.findDOMNode(instance).children[0]);
   });
@@ -48,10 +48,10 @@ describe('<Alert>', () => {
 
   it('Should have use bsStyle class', () => {
     let instance = ReactTestUtils.renderIntoDocument(
-      <Alert bsStyle="danger">Message</Alert>
+      <Alert bsStyle="danger">Message</Alert>,
     );
     assert.ok(
-      ReactDOM.findDOMNode(instance).className.match(/\balert-danger\b/)
+      ReactDOM.findDOMNode(instance).className.match(/\balert-danger\b/),
     );
   });
 
@@ -61,20 +61,20 @@ describe('<Alert>', () => {
 
       assert.equal(
         ReactDOM.findDOMNode(instance).getAttribute('role'),
-        'alert'
+        'alert',
       );
     });
 
-    it('Should call onDismiss callback when the sr-only dismiss link is activated', done => {
+    it('Should call onDismiss callback when the sr-only dismiss link is activated', (done) => {
       let doneOp = () => {
         done();
       };
       let instance = ReactTestUtils.renderIntoDocument(
-        <Alert onDismiss={doneOp}>Message</Alert>
+        <Alert onDismiss={doneOp}>Message</Alert>,
       );
 
       ReactTestUtils.Simulate.click(
-        ReactDOM.findDOMNode(instance).getElementsByClassName('sr-only')[0]
+        ReactDOM.findDOMNode(instance).getElementsByClassName('sr-only')[0],
       );
     });
   });

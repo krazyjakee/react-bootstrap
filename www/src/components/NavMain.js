@@ -8,8 +8,8 @@ import Nav from 'react-bootstrap/lib/Nav';
 const NAV_LINKS = {
   documentation: {
     link: '/getting-started/introduction',
-    title: 'Documentation'
-  }
+    title: 'Documentation',
+  },
 };
 
 // We don't want to include react-router-bootstrap as a dependency here, so we
@@ -21,7 +21,7 @@ function Wrapper({ children }) {
 }
 
 const propTypes = {
-  activePage: PropTypes.string
+  activePage: PropTypes.string,
 };
 
 function NavMain({ activePage }) {

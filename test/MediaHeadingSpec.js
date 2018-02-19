@@ -19,7 +19,7 @@ describe('Media.Heading', () => {
 
   it('should merge additional classes passed in', () => {
     const instance = ReactTestUtils.renderIntoDocument(
-      <Media.Heading className="custom-class" />
+      <Media.Heading className="custom-class" />,
     );
 
     assert.include(ReactDOM.findDOMNode(instance).className, 'media-heading');
@@ -28,7 +28,7 @@ describe('Media.Heading', () => {
 
   it('should allow custom elements instead of "h4"', () => {
     const instance = ReactTestUtils.renderIntoDocument(
-      <Media.Heading componentClass="h2" />
+      <Media.Heading componentClass="h2" />,
     );
 
     assert.equal(ReactDOM.findDOMNode(instance).nodeName, 'H2');
@@ -38,10 +38,10 @@ describe('Media.Heading', () => {
     const instance = ReactTestUtils.renderIntoDocument(
       <Media.Heading>
         <strong>Children</strong>
-      </Media.Heading>
+      </Media.Heading>,
     );
     assert.ok(
-      ReactTestUtils.findRenderedDOMComponentWithTag(instance, 'strong')
+      ReactTestUtils.findRenderedDOMComponentWithTag(instance, 'strong'),
     );
   });
 });

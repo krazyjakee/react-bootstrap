@@ -10,7 +10,7 @@ import {
   getClassSet,
   prefix,
   splitBsProps,
-  bsSizes
+  bsSizes,
 } from './utils/bootstrapUtils';
 import { Size } from './utils/StyleConfig';
 
@@ -40,15 +40,15 @@ const propTypes = {
    */
   inputRef: PropTypes.func,
   isValid: PropTypes.bool.isRequired,
-  isInvalid: PropTypes.bool.isRequired
+  isInvalid: PropTypes.bool.isRequired,
 };
 
 const defaultProps = {
-  componentClass: 'input'
+  componentClass: 'input',
 };
 
 const contextTypes = {
-  $bs_formGroup: PropTypes.object
+  $bs_formGroup: PropTypes.object,
 };
 
 class FormControl extends React.Component {
@@ -73,7 +73,7 @@ class FormControl extends React.Component {
 
     warning(
       controlId == null || id === controlId,
-      '`controlId` is ignored on `<FormControl>` when `id` is specified.'
+      '`controlId` is ignored on `<FormControl>` when `id` is specified.',
     );
 
     let classes;
@@ -96,7 +96,7 @@ class FormControl extends React.Component {
           className,
           classes,
           isValid && prefix(bsProps, 'is-valid'),
-          isInvalid && prefix(bsProps, 'is-invalid')
+          isInvalid && prefix(bsProps, 'is-invalid'),
         )}
       />
     );
@@ -111,5 +111,5 @@ FormControl.Feedback = InvalidFeedback;
 
 export default bsClass(
   'form-control',
-  bsSizes([Size.SMALL, Size.LARGE], FormControl)
+  bsSizes([Size.SMALL, Size.LARGE], FormControl),
 );

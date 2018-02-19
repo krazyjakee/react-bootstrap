@@ -9,7 +9,7 @@ import {
   bsStyles,
   getClassSet,
   prefix,
-  splitBsProps
+  splitBsProps,
 } from './utils/bootstrapUtils';
 import { Size, State, Style } from './utils/StyleConfig';
 
@@ -26,13 +26,13 @@ const propTypes = {
    * Defines HTML button type attribute
    * @defaultValue 'button'
    */
-  type: PropTypes.oneOf(['button', 'reset', 'submit'])
+  type: PropTypes.oneOf(['button', 'reset', 'submit']),
 };
 
 const defaultProps = {
   active: false,
   block: false,
-  disabled: false
+  disabled: false,
 };
 
 class Button extends React.Component {
@@ -64,7 +64,7 @@ class Button extends React.Component {
     const classes = {
       ...getClassSet(bsProps),
       active,
-      [prefix(bsProps, 'block')]: block
+      [prefix(bsProps, 'block')]: block,
     };
     const fullClassName = classNames(className, classes);
 
@@ -84,7 +84,7 @@ const variants = [
   Style.PRIMARY,
   Style.SECONDARY,
   Style.LIGHT,
-  Style.DARK
+  Style.DARK,
 ];
 const outlineVariants = variants.map(v => `outline-${v}`);
 
@@ -95,7 +95,7 @@ export default bsClass(
     bsStyles(
       [...variants, ...outlineVariants, Style.LINK],
       Style.PRIMARY,
-      Button
-    )
-  )
+      Button,
+    ),
+  ),
 );
